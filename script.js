@@ -2,6 +2,8 @@
 const LOJA = {
   nome: "Uau! Lab",
   shopee: "https://shopee.com.br/ga2raojrxe",
+  instagram: "https://www.instagram.com/uaulab3d/",
+  facebook: "https://www.facebook.com/share/1PauAL9Crs/?mibextid=wwXIfr",
   whatsapp: "" // ex.: "5511999998888". Vazio = compra direcionada para a Shopee
 };
 

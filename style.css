@@ -1104,6 +1104,37 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
   margin-top: 12px;
   line-height: 1.6;
 }
+.footer__socials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+.social-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 13px !important;
+  opacity: 1 !important;
+  transition: all .2s;
+  width: fit-content;
+}
+.social-btn svg { width: 18px; height: 18px; flex-shrink: 0; stroke: currentColor; }
+.social-btn:hover {
+  background: var(--yellow);
+  color: var(--black) !important;
+  border-color: var(--yellow);
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0px var(--black);
+}
+.social-btn--insta:hover svg { stroke: var(--black); }
+.social-btn--fb:hover svg { stroke: var(--black); }
 .logo--footer .logo-text span { color: #fff; }
 .logo--footer .logo-text small { background: var(--yellow); color: var(--black); }
 .footer__copy {
