@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uau! Lab | Criações em Impressão 3D, Capas de Isqueiro & Moldes</title>
+  <meta name="description" content="Uau! Lab: Peças criativas em impressão 3D! Capas de isqueiro colecionáveis, moldes e ejetores para brigadeiros e doces, modelos personalizados e sob encomenda. Deixe seu dia mais UAU!" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=8" />
+</head>
+<body>
+
+  <!-- BARRA DE ROLAGEM TOPO -->
+  <div class="topbar">
+    <div class="ticker">
+      <span>🚚 FRETE GRÁTIS EM TODOS OS PRODUTOS</span>
+      <span>⚡ UAU! LAB: CRIAÇÕES CRIATIVAS EM IMPRESSÃO 3D</span>
+      <span>🍪 NOVO: ORGANIZADOR DE CABOS OREO POR R$ 39,90</span>
+      <span>📱 NOVO: SUPORTE CELULAR DE MESA POR R$ 19,90</span>
+      <span>🚗 NOVO: SUPORTE VEICULAR 2 EM 1 POR R$ 29,90</span>
+      <span>🔥 NOVO: CAPA CEIFADOR & ISQUEIROS POR R$ 14,90</span>
+      <span>🍰 AINDA TEMOS MOLDES E EJETORES PARA CONFEITARIA</span>
+      <span>✨ PROJETOS SOB ENCOMENDA: CHAMA NO CHAT</span>
+      <span>🚚 FRETE GRÁTIS EM TODOS OS PRODUTOS</span>
+      <span>⚡ UAU! LAB: CRIAÇÕES CRIATIVAS EM IMPRESSÃO 3D</span>
+      <span>🍪 NOVO: ORGANIZADOR DE CABOS OREO POR R$ 39,90</span>
+      <span>📱 NOVO: SUPORTE CELULAR DE MESA POR R$ 19,90</span>
+      <span>🚗 NOVO: SUPORTE VEICULAR 2 EM 1 POR R$ 29,90</span>
+      <span>🔥 NOVO: CAPA CEIFADOR & ISQUEIROS POR R$ 14,90</span>
+      <span>🍰 AINDA TEMOS MOLDES E EJETORES PARA CONFEITARIA</span>
+      <span>✨ PROJETOS SOB ENCOMENDA: CHAMA NO CHAT</span>
+    </div>
+  </div>
+
+  <!-- CABEÇALHO -->
+  <header class="header" id="topo">
+    <div class="header__row container">
+      <button class="icon-btn menu-btn" id="menu-btn" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <a href="#topo" class="logo" aria-label="Uau! Lab Início">
+        <img src="assets/logo-web.png" alt="Uau! Lab Logo" />
+        <div class="logo-text">
+          <span>Uau! Lab</span>
+          <small>Criações em 3D</small>
+        </div>
+      </a>
+
+      <form class="search" id="search" role="search">
+        <input type="search" id="q" placeholder="Qual criação em 3D você procura? (capas, moldes, números...)" aria-label="Buscar produtos" />
+        <button type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+      </form>
+
+      <div class="header__actions">
+        <a class="hdr-link" href="#contato">
+          <span class="hdr-ico"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12Z"/></svg></span>
+          <span class="hdr-txt"><b>Atendimento</b><small>Chama no chat</small></span>
+        </a>
+        <button class="hdr-link" id="cart-btn" aria-label="Ver carrinho">
+          <span class="hdr-ico"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><i class="badge" id="cart-count">0</i></span>
+          <span class="hdr-txt"><b>Carrinho</b><small id="cart-total-top">R$ 0,00</small></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav class="menu" id="menu" aria-label="Navegação por categorias">
+      <div class="container menu__inner">
+        <a href="#topo">Início</a>
+        <a href="#produtos" data-go="isqueiros" class="menu__hot">🔥 Capas de Isqueiro</a>
+        <a href="#produtos" data-go="utilidades" class="menu__hot">💡 Utilidades & Setup</a>
+        <a href="#produtos" data-go="ejetores">🍰 Moldes & Ejetores</a>
+        <a href="#produtos" data-go="numeros">🎂 Números 0 a 9</a>
+        <a href="#produtos" data-go="kits">🎁 Kits Promocionais</a>
+        <a href="#produtos" data-go="natal">🎄 Especial Natal</a>
+        <a href="#produtos" data-go="personalizado">✨ Personalizados</a>
+        <a href="#faq">Dúvidas</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- BARRA DE AVISO / PROMO -->
+  <div class="promo">
+    <span>🚚</span> <span><b>TUDO COM FRETE GRÁTIS!</b> Novos Lançamentos: Organizador Oreo (R$ 39,90), Suporte Celular (R$ 19,90), Suporte Veicular (R$ 29,90) e Capas de Isqueiro (R$ 14,90) 🚀</span>
+  </div>
+
+  <main>
+    <!-- CARROSSEL HERO -->
+    <section class="hero" aria-roledescription="carrossel">
+      <div class="hero__track" id="hero-track">
+
+        <!-- SLIDE 1: IDENTIDADE UAU! LAB -->
+        <article class="slide slide--1">
+          <img class="slide__bg" src="assets/banner-hero-1.png" alt="Uau! Lab - Criações em impressão 3D" />
+          <div class="slide__content">
+            <span class="pill pill--yellow">✨ Criações em Impressão 3D</span>
+            <h2>Peças criativas pra deixar o seu dia <span>mais UAU!</span></h2>
+            <p>Feitas por nós, uma a uma com filamento premium. Novos modelos sempre!</p>
+            <div class="slide__actions">
+              <a href="#produtos" data-go="isqueiros" class="btn btn--yellow">🔥 Ver Capas de Isqueiro</a>
+              <a href="#produtos" data-go="ejetores" class="btn btn--black">🍰 Ver Moldes e Ejetores</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- SLIDE 2: CAPAS DE ISQUEIRO -->
+        <article class="slide slide--2">
+          <img class="slide__bg" src="assets/banner-hero-2.png" alt="Capas de isqueiro 3D, moldes e mais" />
+          <div class="slide__content">
+            <span class="pill pill--yellow">🔥 Lançamento Colecionável</span>
+            <h2>Capas de Isqueiro em 3D com <em>Texturas Únicas</em></h2>
+            <p>Aranha, Dragão Oriental, Caveiras e Tático. Encaixe firme para isqueiro BIC Maxi!</p>
+            <div class="slide__actions">
+              <a href="#produtos" data-go="isqueiros" class="btn btn--yellow">Explorar Coleção de Capas</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- SLIDE 3: MOLDES & CONFEITARIA -->
+        <article class="slide slide--3">
+          <div class="slide__content">
+            <span class="pill pill--yellow">🎂 Confeitaria Criativa</span>
+            <h2>Ainda temos seus <em>moldes & ejetores</em> favoritos!</h2>
+            <p>Carimbos e cortadores padronizados em 3,5 cm para brigadeiros e doces perfeitos. Coleção Números 0 a 9 e Kits com desconto.</p>
+            <div class="slide__actions">
+              <a href="#produtos" data-go="ejetores" class="btn btn--black">Ver Moldes & Ejetores</a>
+              <a href="#produtos" data-go="kits" class="btn btn--yellow">Ver Kits Promocionais</a>
+            </div>
+          </div>
+          <img class="slide__prod-preview" src="assets/produtos/kit-natal-1.jpg" alt="Kit Natal 5 Modeladores Ejetores" />
+        </article>
+
+      </div>
+      <button class="hero__arrow hero__arrow--prev" id="hero-prev" aria-label="Banner anterior">‹</button>
+      <button class="hero__arrow hero__arrow--next" id="hero-next" aria-label="Próximo banner">›</button>
+      <div class="hero__dots" id="hero-dots"></div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="container section">
+      <h2 class="title">Categorias Populares</h2>
+      <div class="cats" id="cats"></div>
+    </section>
+
+    <!-- DESTAQUES -->
+    <section class="container section" id="novidades">
+      <div class="title-row">
+        <h2 class="title">🔥 Em Destaque na Uau! Lab</h2>
+        <div class="scroller-nav">
+          <button data-scroll="destaques" data-dir="-1" aria-label="Voltar">‹</button>
+          <button data-scroll="destaques" data-dir="1" aria-label="Avançar">›</button>
+        </div>
+      </div>
+      <div class="scroller" id="destaques"></div>
+    </section>
+
+    <!-- BENEFÍCIOS / PERKS -->
+    <section class="perks">
+      <div class="container perks__inner">
+        <div class="perk"><span>⚡</span><div><b>Impressão 3D Premium</b><p>Camadas nítidas em PLA de alta precisão</p></div></div>
+        <div class="perk"><span>🔥</span><div><b>Design Próprio & Único</b><p>Peças autorais que você só encontra aqui</p></div></div>
+        <div class="perk"><span>🍰</span><div><b>Tradição em Confeitaria</b><p>Moldes e ejetores testados e aprovados</p></div></div>
+        <div class="perk"><span>🚚</span><div><b>Frete Grátis Brasil</b><p>Envio com frete grátis garantido na Shopee</p></div></div>
+      </div>
+    </section>
+
+    <!-- VITRINE EXCLUSIVA: CAPAS DE ISQUEIRO 3D -->
+    <section class="container section" id="secao-isqueiros">
+      <div class="showcase-banner">
+        <div>
+          <span class="pill pill--yellow">🔥 Nova Linha Colecionável</span>
+          <h2>Capas de Isqueiro 3D: <em>Estilo, Relevo & Proteção</em></h2>
+          <p>Dê um upgrade no seu isqueiro BIC Maxi! Esculturas táteis em alto relevo com encaixe justo que não solta no bolso. Ceifador, Aranha, Dragão e Caveiras por apenas R$ 14,90.</p>
+          <a href="#produtos" data-go="isqueiros" class="btn btn--yellow">Ver todas as capas</a>
+        </div>
+        <img class="showcase-banner__img" src="assets/banner-hero-2.png" alt="Capas de isqueiro 3D da Uau! Lab" />
+      </div>
+
+      <div style="margin-top: 28px;">
+        <div class="grid" id="grid-isqueiros"></div>
+      </div>
+    </section>
+
+    <!-- VITRINE UTILIDADES & SETUP 3D -->
+    <section class="container section" id="secao-utilidades">
+      <div class="title-row">
+        <div>
+          <h2 class="title">💡 Utilidades, Suportes & Setup 3D</h2>
+          <p style="color: var(--gray-mid); font-size: 14px; margin-top: 4px;">Organizador Oreo, Suporte de celular ergonômico e suporte para banco de carro. Tudo com frete grátis!</p>
+        </div>
+        <a href="#produtos" data-go="utilidades" class="btn btn--yellow" style="font-size: 13px; padding: 8px 16px;">Ver todas as utilidades →</a>
+      </div>
+      <div class="grid" id="grid-utilidades"></div>
+    </section>
+
+    <!-- VITRINE CONFEITARIA: MOLDES & EJETORES -->
+    <section class="container section" id="secao-ejetores">
+      <div class="title-row">
+        <div>
+          <h2 class="title">🍰 Moldes & Ejetores para Confeitaria</h2>
+          <p style="color: var(--gray-mid); font-size: 14px; margin-top: 4px;">Continuamos produzindo os ejetores de brigadeiro mais amados! Tamanho padrão de 3,5 cm.</p>
+        </div>
+        <a href="#produtos" data-go="ejetores" class="btn btn--yellow" style="font-size: 13px; padding: 8px 16px;">Ver todos os moldes →</a>
+      </div>
+      <div class="grid" id="grid-ejetores"></div>
+    </section>
+
+    <!-- BANNERS DUPLOS -->
+    <section class="container section duo">
+      <button class="duo__card duo__card--isqueiros" data-go="isqueiros">
+        <div>
+          <span class="pill pill--yellow">Coleção Exclusiva</span>
+          <h3>Capas de Isqueiro 3D</h3>
+          <p>Aranha, Dragão e Caveiras<br>por apenas <b>R$ 14,90</b></p>
+        </div>
+        <img src="assets/produtos/capa-isqueiro-dragao-1.jpg" alt="Capa de Isqueiro Dragão" />
+      </button>
+
+      <button class="duo__card duo__card--perso" data-open="projeto-3d-personalizado">
+        <div>
+          <span class="pill">Sob Medida</span>
+          <h3>Quer algo personalizado?</h3>
+          <p>Mande sua ideia ou logo<br><b>Chama no chat!</b></p>
+        </div>
+        <img src="assets/produtos/projeto-3d-personalizado-1.jpg" alt="Projetos 3D sob medida" />
+      </button>
+    </section>
+
+    <!-- ESPECIAL NATAL -->
+    <section class="natal" id="natal">
+      <div class="container">
+        <div class="natal__head">
+          <div>
+            <span class="pill pill--light">Especial Natal 🎄</span>
+            <h2>Sua mesa de Natal mais doce</h2>
+            <p>Árvore, gorro, sino, floco e boneco de neve. Leve o kit completo com economia de R$ 40,00!</p>
+          </div>
+          <button class="btn btn--yellow" data-open="kit-natal">Ver Kit Natal Completo</button>
+        </div>
+        <div class="grid" id="grid-natal"></div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA NA UAU! LAB -->
+    <section class="container section" id="como-funciona">
+      <h2 class="title">Como Funciona na Uau! Lab</h2>
+      <div class="steps">
+        <div class="step">
+          <i>1</i>
+          <b>Escolha sua peça</b>
+          <p>Explore nossas capas de isqueiro, moldes ejetores de doces ou faça o pedido de um projeto 3D personalizado sob medida.</p>
+        </div>
+        <div class="step">
+          <i>2</i>
+          <b>Fabricação 3D de Precisão</b>
+          <p>Produzimos cada unidade no nosso laboratório utilizando filamento PLA de alta resolução, garantindo relevos marcantes e acabamento perfeito.</p>
+        </div>
+        <div class="step">
+          <i>3</i>
+          <b>Receba com Segurança</b>
+          <p>Seu pedido é embalado com todo cuidado e enviado com código de rastreio para qualquer lugar do Brasil pela Shopee ou correios.</p>
+        </div>
+      </div>
+      <p class="tip">💡 <b>Dica para moldes e ejetores:</b> Polvilhe um pouco de açúcar impalpável ou amido de milho para facilitar a desmoldagem. Lave as peças sempre à mão com água morna (nunca em lava-louças).</p>
+    </section>
+
+    <!-- TODOS OS PRODUTOS (CATÁLOGO COMPLETO) -->
+    <section class="container section" id="produtos">
+      <div class="title-row">
+        <div>
+          <h2 class="title">Catálogo Completo</h2>
+          <span class="count" id="count"></span>
+        </div>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="grid-all"></div>
+      <p class="empty" id="empty" hidden>Nenhum produto encontrado nessa categoria. Quer um modelo diferente ou personalizado? <a href="#contato">Fale com a gente no chat</a> que criamos para você!</p>
+    </section>
+
+    <!-- FAQ (DÚVIDAS FREQUENTES) -->
+    <section class="container section faq" id="faq">
+      <h2 class="title">Dúvidas Frequentes</h2>
+
+      <details>
+        <summary>O que é a Uau! Lab? O nicho da loja mudou?</summary>
+        <p>A Uau! Lab é o nosso laboratório de criações em impressão 3D! Expandimos nossa atuação: agora fabricamos incríveis capas de isqueiro colecionáveis, itens temáticos e projetos sob encomenda, ao mesmo tempo em que continuamos produzindo com todo carinho a nossa linha consagrada de moldes e ejetores de confeitaria.</p>
+      </details>
+
+      <details>
+        <summary>As capas de isqueiro servem em qual modelo de isqueiro?</summary>
+        <p>Nossas capas foram modeladas com precisão milimétrica para o isqueiro tradicional BIC Maxi (tamanho grande padrão). O encaixe é justo e seguro, garantindo que a capa fique firme na mão e não solte no bolso.</p>
+      </details>
+
+      <details>
+        <summary>Vocês ainda vendem os ejetores e modeladores de brigadeiro?</summary>
+        <p>Sim! Nossa linha de moldes e ejetores para doces continua a todo vapor. Temos a coleção completa de números de 0 a 9 para aniversários, o Kit Natal, o Kit Festa, corações, estrelas, coroas e modelos com inicial personalizada. Todos com tamanho padrão de 3,5 cm.</p>
+      </details>
+
+      <details>
+        <summary>Como encomendar uma peça ou projeto personalizado?</summary>
+        <p>Para modelos personalizados (seja um ejetor com sua inicial/logo ou uma peça 3D exclusiva), basta nos chamar pelo chat da Shopee ou WhatsApp informando sua ideia. Enviamos uma prévia e produzimos sob medida para você!</p>
+      </details>
+
+      <details>
+        <summary>Qual o material das peças e como cuidar?</summary>
+        <p>Utilizamos plástico PLA de alta qualidade, um polímero de origem ecológica, resistente, atóxico e leve. Para higienizar os moldes, lave sempre à mão com água morna e sabão neutro. Não utilize água fervente nem máquina de lavar louça.</p>
+      </details>
+
+      <details>
+        <summary>O frete é grátis mesmo? Como funciona o envio?</summary>
+        <p>Sim! Todos os nossos produtos contam com <b>Frete Grátis</b>! Você pode adicionar ao carrinho e concluir a compra com cupom de frete grátis diretamente na nossa loja oficial da Shopee, com pagamento protegido e rastreio para todo o Brasil.</p>
+      </details>
+
+      <details>
+        <summary>Como funciona a compra, pagamento e envio?</summary>
+        <p>Você pode adicionar os produtos ao carrinho aqui no site e finalizar na nossa loja oficial na Shopee com garantia total, cupom de frete grátis e pagamento seguro por Pix, Cartão ou Boleto. Enviamos para todo o Brasil com código de rastreamento.</p>
+      </details>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer" id="contato">
+    <div class="container footer__grid">
+      <div>
+        <a href="#topo" class="logo logo--footer">
+          <img src="assets/logo-web.png" alt="Uau! Lab Logo" />
+          <div class="logo-text">
+            <span>Uau! Lab</span>
+            <small>Criações em 3D</small>
+          </div>
+        </a>
+        <p>Laboratório de criações em impressão 3D. Peças criativas, feitas por nós, pra deixar o seu dia mais UAU! Capas de isqueiro, organizadores, suportes, moldes ejetores e peças personalizadas.</p>
+      </div>
+
+      <div>
+        <h4>Categorias</h4>
+        <a href="#produtos" data-go="isqueiros">🔥 Capas de Isqueiro</a>
+        <a href="#produtos" data-go="utilidades">💡 Utilidades & Setup</a>
+        <a href="#produtos" data-go="ejetores">🍰 Moldes & Ejetores</a>
+        <a href="#produtos" data-go="numeros">🎂 Números 0 a 9</a>
+        <a href="#produtos" data-go="kits">🎁 Kits Promocionais</a>
+        <a href="#natal">🎄 Coleção de Natal</a>
+        <a href="#produtos" data-go="personalizado">✨ Personalizados</a>
+      </div>
+
+      <div>
+        <h4>Atendimento</h4>
+        <a href="https://shopee.com.br/ga2raojrxe" target="_blank" rel="noopener">Chat Oficial na Shopee</a>
+        <a href="#" id="wa-footer" hidden>Fale no WhatsApp</a>
+        <a href="https://shopee.com.br/ga2raojrxe" target="_blank" rel="noopener">Rastrear Pedido</a>
+        <a href="#faq">Dúvidas Frequentes</a>
+      </div>
+
+      <div>
+        <h4>Compre com Segurança</h4>
+        <p style="color: #fff; font-weight: 700; margin-top: 0;">Loja Oficial Shopee</p>
+        <p>Pagamento protegido por Pix, Cartão de Crédito e Boleto com garantia de entrega para todo o Brasil.</p>
+      </div>
+    </div>
+
+    <p class="footer__copy">© <span id="ano"></span> Uau! Lab · Criações em Impressão 3D · Todos os direitos reservados</p>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE DE CHAT -->
+  <a class="float-chat" id="float-chat" href="https://shopee.com.br/ga2raojrxe" target="_blank" rel="noopener" aria-label="Fale conosco no chat">
+    <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12Z"/></svg>
+  </a>
+
+  <!-- MODAL DETALHES DO PRODUTO -->
+  <div class="overlay" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+      <button class="close" data-close aria-label="Fechar">×</button>
+      <div class="modal__gallery">
+        <img id="m-img" src="" alt="" />
+        <div class="thumbs" id="m-thumbs"></div>
+      </div>
+      <div class="modal__info">
+        <span class="tag" id="m-tag"></span>
+        <h3 id="m-title"></h3>
+        <div class="price price--lg" id="m-price"></div>
+
+        <div id="m-variations" class="variations" hidden>
+          <span class="variations__label">Escolha o número:</span>
+          <div class="variations__btns" id="m-var-btns"></div>
+        </div>
+
+        <p id="m-desc"></p>
+        <ul class="specs" id="m-specs"></ul>
+
+        <div class="buy">
+          <div class="qty">
+            <button id="m-minus" aria-label="Diminuir quantidade">−</button>
+            <span id="m-qty">1</span>
+            <button id="m-plus" aria-label="Aumentar quantidade">+</button>
+          </div>
+          <button class="btn btn--yellow btn--block" id="m-add">Adicionar ao carrinho</button>
+        </div>
+
+        <a class="shopee-link" id="m-shopee" href="https://shopee.com.br/ga2raojrxe" target="_blank" rel="noopener">Comprar na loja oficial Shopee →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRAWER CARRINHO DE COMPRAS -->
+  <div class="overlay overlay--side" id="cart" hidden>
+    <aside class="drawer" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+      <div class="drawer__head">
+        <h3>Meu Carrinho Uau! Lab</h3>
+        <button class="close" data-close aria-label="Fechar">×</button>
+      </div>
+      <div class="drawer__body" id="cart-items"></div>
+      <div class="drawer__foot">
+        <div class="drawer__total">
+          <span>Total:</span>
+          <b id="cart-total">R$ 0,00</b>
+        </div>
+        <button class="btn btn--yellow btn--block" id="checkout">Finalizar Compra</button>
+        <p class="drawer__note" id="checkout-note"></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- NOTIFICAÇÃO TOAST -->
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js?v=8"></script>
+</body>
+</html>

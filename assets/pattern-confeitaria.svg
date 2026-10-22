@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="0 0 340 340">
+  <defs>
+    <!-- 4-point sparkle star -->
+    <g id="sparkle">
+      <path d="M 0,-13 Q 0,0 13,0 Q 0,0 0,13 Q 0,0 -13,0 Q 0,0 0,-13 Z" />
+    </g>
+    <!-- Sugar sprinkle pill -->
+    <g id="sprinkle">
+      <rect x="-8" y="-2.5" width="16" height="5" rx="2.5" />
+    </g>
+    <!-- Sweet heart -->
+    <g id="heart">
+      <path d="M 0,-4 A 3.5,3.5 0 0,1 6,-4 C 6,0 0,6 0,7 C 0,6 -6,0 -6,-4 A 3.5,3.5 0 0,1 0,-4 Z" transform="scale(1.2)" />
+    </g>
+    <!-- Soft ambient glows -->
+    <radialGradient id="glowRose" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e5487f" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#e5487f" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#e5487f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowHoney" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f5b875" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#f5b875" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#f5b875" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ambient orbs -->
+  <circle cx="60" cy="80" r="50" fill="url(#glowHoney)" />
+  <circle cx="270" cy="110" r="60" fill="url(#glowRose)" />
+  <circle cx="160" cy="250" r="55" fill="url(#glowHoney)" />
+  <circle cx="310" cy="290" r="45" fill="url(#glowRose)" />
+
+  <!-- Rose sparkles -->
+  <g fill="#e5487f" opacity="0.32">
+    <use href="#sparkle" x="80" y="45" transform="scale(0.8)" />
+    <use href="#sparkle" x="240" y="160" transform="scale(0.7)" />
+    <use href="#sparkle" x="50" y="270" transform="scale(0.75)" />
+    <use href="#sparkle" x="310" y="60" transform="scale(0.6)" />
+    <use href="#sparkle" x="180" y="300" transform="scale(0.68)" />
+  </g>
+
+  <!-- Gold/Honey sparkles -->
+  <g fill="#d48a38" opacity="0.38">
+    <use href="#sparkle" x="170" y="80" transform="scale(0.65)" />
+    <use href="#sparkle" x="280" y="220" transform="scale(0.72)" />
+    <use href="#sparkle" x="120" y="190" transform="scale(0.55)" />
+    <use href="#sparkle" x="25" y="140" transform="scale(0.5)" />
+  </g>
+
+  <!-- Cute hearts -->
+  <g fill="#e5487f" opacity="0.25">
+    <use href="#heart" x="135" y="125" transform="rotate(-15)" />
+    <use href="#heart" x="220" y="260" transform="rotate(18)" />
+    <use href="#heart" x="35" y="210" transform="rotate(12)" />
+    <use href="#heart" x="290" y="135" transform="rotate(-10)" />
+  </g>
+
+  <!-- Sugar sprinkles (candies) -->
+  <g fill="#e5487f" opacity="0.28">
+    <use href="#sprinkle" x="95" y="90" transform="rotate(25)" />
+    <use href="#sprinkle" x="205" y="45" transform="rotate(-35)" />
+    <use href="#sprinkle" x="260" y="280" transform="rotate(40)" />
+    <use href="#sprinkle" x="65" y="165" transform="rotate(-20)" />
+  </g>
+  <g fill="#d48a38" opacity="0.32">
+    <use href="#sprinkle" x="150" y="160" transform="rotate(-45)" />
+    <use href="#sprinkle" x="270" y="80" transform="rotate(30)" />
+    <use href="#sprinkle" x="125" y="285" transform="rotate(15)" />
+    <use href="#sprinkle" x="320" y="190" transform="rotate(-30)" />
+  </g>
+
+  <!-- Confectionery sugar pearls / dots -->
+  <g fill="#e5487f" opacity="0.35">
+    <circle cx="40" cy="40" r="2.2" />
+    <circle cx="215" cy="115" r="2" />
+    <circle cx="285" cy="20" r="1.8" />
+    <circle cx="85" cy="225" r="2" />
+    <circle cx="165" cy="220" r="2.4" />
+    <circle cx="250" cy="315" r="1.8" />
+  </g>
+  <g fill="#d48a38" opacity="0.4">
+    <circle cx="105" cy="140" r="2" />
+    <circle cx="190" cy="195" r="2.2" />
+    <circle cx="305" cy="245" r="2" />
+    <circle cx="18" cy="295" r="1.8" />
+  </g>
+  <g fill="#ffffff" opacity="0.7">
+    <circle cx="145" cy="55" r="2.5" />
+    <circle cx="70" cy="115" r="2.2" />
+    <circle cx="230" cy="225" r="2" />
+    <circle cx="300" cy="165" r="2.2" />
+  </g>
+</svg>
