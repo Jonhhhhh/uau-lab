@@ -129,6 +129,66 @@ const PRODUTOS = [
 
   // === UTILIDADES & SUPORTES 3D ===
   {
+    slug: "porta-pincel-corsair",
+    nome: "Porta Pincéis e Organizador de Bancada Corsair em Impressão 3D",
+    curto: "Porta Pincel Corsair",
+    cat: "utilidades",
+    ejetor: false,
+    preco: 35.99,
+    de: 39.99,
+    fotos: 6,
+    destaque: true,
+    novo: true,
+    desc: "Organizador de bancada Corsair com design exclusivo e moderno em impressão 3D. Compartimentos sob medida para organizar seus pincéis de maquiagem, canetas ou ferramentas com estilo, firmeza e elegância na sua penteadeira ou mesa.",
+    specs: [
+      "Design Corsair moderno e estilizado em alto relevo",
+      "Compartimentos espaçosos para múltiplos pincéis e cosméticos",
+      "Base sólida e estável que decora sua bancada ou mesa",
+      "10% de Desconto promocional exclusivo",
+      "🚚 Frete Grátis para todo o Brasil"
+    ]
+  },
+  {
+    slug: "kit-3-ganchos",
+    nome: "Kit com 3 Ganchos Multiuso de Parede em Impressão 3D",
+    curto: "Kit 3 Ganchos Multiuso",
+    cat: "utilidades",
+    ejetor: false,
+    preco: 16.99,
+    de: 24.90,
+    fotos: 5,
+    destaque: true,
+    novo: true,
+    desc: "Kit econômico com 3 ganchos resistentes para parede, armário ou bancada. Design moderno impresso em 3D, ideal para pendurar toalhas, chaves, bolsas, fones de ouvido e utensílios, mantendo sua casa prática e organizada.",
+    specs: [
+      "Kit contém 3 ganchos resistentes em 3D",
+      "Fixação prática para paredes, portas, móveis e azulejos",
+      "Ideal para chaves, toalhas, bolsas, cabos e fones",
+      "Material PLA resistente de alta sustentação",
+      "🚚 Frete Grátis para todo o Brasil"
+    ]
+  },
+  {
+    slug: "limpador-pincel",
+    nome: "Limpador e Higienizador de Pincéis de Maquiagem em 3D",
+    curto: "Limpador de Pincel",
+    cat: "utilidades",
+    ejetor: false,
+    preco: 9.99,
+    de: 14.90,
+    fotos: 3,
+    destaque: true,
+    novo: true,
+    desc: "Acessório prático e higiênico para lavar e retirar resíduos de maquiagem de pincéis com facilidade. Superfície com relevos e ranhuras inteligentes que limpam as cerdas profundamente sem danificá-las.",
+    specs: [
+      "Superfície com texturas variadas para cerdas finas e grossas",
+      "Limpa profundamente sem estragar as cerdas do pincel",
+      "Tamanho compacto, leve e fácil de manusear na pia",
+      "Material lavável, resistente e durável",
+      "🚚 Frete Grátis para todo o Brasil"
+    ]
+  },
+  {
     slug: "organizador-cabos-oreo",
     nome: "Organizador e Enrolador de Cabos 3D Biscoito Oreo Retrátil",
     curto: "Organizador de Cabos Oreo",
