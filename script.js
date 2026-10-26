@@ -11,6 +11,46 @@ const LOJA = {
 const PRODUTOS = [
   // === CAPAS DE ISQUEIRO 3D ===
   {
+    slug: "capa-isqueiro-panico",
+    nome: "Capa Case Compatível com Isqueiro BIC Grande Pânico Preto ou Branco",
+    curto: "Capa Isqueiro Pânico",
+    cat: "isqueiros",
+    ejetor: false,
+    preco: 14.90,
+    de: 19.90,
+    fotos: 4,
+    destaque: true,
+    novo: true,
+    desc: "Capa colecionável inspirada na icônica máscara do Pânico (Ghostface) com acabamento marcante e textura tátil diferenciada. Disponível nas cores Preto ou Branco. Encaixe justo, firme e anatômico para isqueiro tradicional BIC Maxi.",
+    specs: [
+      "Compatível com isqueiro tradicional BIC Grande (Maxi)",
+      "Design icônico da máscara do Pânico / Ghostface",
+      "Disponível em Preto ou Branco",
+      "Impresso em PLA Premium de alta resistência",
+      "Encaixe firme que não solta no bolso"
+    ]
+  },
+  {
+    slug: "capa-isqueiro-chamas",
+    nome: "Capa Case Compatível com Isqueiro BIC Grande Chamas Preto ou Branco",
+    curto: "Capa Isqueiro Chamas",
+    cat: "isqueiros",
+    ejetor: false,
+    preco: 14.90,
+    de: 19.90,
+    fotos: 5,
+    destaque: true,
+    novo: true,
+    desc: "Capa estilosa com chamas vazadas em relevo e design fluido. Mostra a cor do seu isqueiro ou contrasta perfeitamente com o corpo da peça. Encaixe firme e anatômico para isqueiro tradicional BIC Maxi.",
+    specs: [
+      "Compatível com isqueiro tradicional BIC Grande (Maxi)",
+      "Design vazado escultural de chamas em alto relevo",
+      "Disponível nas opções Preto ou Branco",
+      "Material resistente com pegada ergonômica",
+      "Protege contra riscos e impactos leves"
+    ]
+  },
+  {
     slug: "capa-isqueiro-aranha",
     nome: "Capa de Isqueiro 3D Aranha em Alto Relevo (Compatível com BIC Maxi)",
     curto: "Capa Isqueiro Aranha",
@@ -102,8 +142,7 @@ const PRODUTOS = [
       "Compatível com isqueiro tradicional BIC Maxi",
       "Design tático industrial com ranhuras antiderrapantes",
       "Material reforçado e de longa durabilidade",
-      "Visual exclusivo e moderno",
-      "🚚 Frete Grátis para todo o Brasil"
+      "Visual exclusivo e moderno"
     ]
   },
   {
@@ -122,36 +161,94 @@ const PRODUTOS = [
       "Compatível com isqueiro BIC Maxi tradicional",
       "Modelagem 3D escultural do Ceifador em alto relevo",
       "Impresso em PLA Premium de alta resistência",
-      "Encaixe firme que não solta no bolso",
-      "🚚 Frete Grátis para todo o Brasil"
+      "Encaixe firme que não solta no bolso"
     ]
   },
 
   // === UTILIDADES & SUPORTES 3D ===
   {
-    slug: "porta-pincel-corsair",
-    nome: "Porta Pincéis e Organizador de Bancada Corsair em Impressão 3D",
-    curto: "Porta Pincel Corsair",
+    slug: "suporte-papel-higienico-celular",
+    nome: "Suporte de Papel Higiênico e Celular Criativo Boneco Articulado para Bancada Preto ou Branco",
+    curto: "Suporte Papel Higiênico & Celular",
     cat: "utilidades",
     ejetor: false,
-    preco: 35.99,
+    preco: 19.99,
+    de: 29.90,
+    fotos: 2,
+    destaque: true,
+    novo: true,
+    desc: "O suporte mais divertido e criativo para o seu banheiro ou lavabo! Boneco articulado que senta na quina da bancada ou prateleira abraçando o rolo de papel higiênico, com as costas no formato estilizado de smartphone. Suas perninhas com elos articulados balançam livremente na borda.",
+    specs: [
+      "Compatível com rolo padrão de papel higiênico",
+      "Pernas articuladas que penduram na borda da bancada",
+      "Design exclusivo de personagem segurando rolo com traseira de smartphone",
+      "Disponível nas cores Branco ou Preto",
+      "Peça decorativa divertida e resistente em impressão 3D"
+    ]
+  },
+  {
+    slug: "porta-frascos-monjaro-flor",
+    nome: "Porta Frascos Monjaro Redondo 5 Lugares Estampa de Flor Pote com Tampa Rosca Organizador de Ampolas",
+    curto: "Porta Frascos Monjaro Flor (5 Lugares)",
+    cat: "utilidades",
+    ejetor: false,
+    preco: 21.99,
+    de: 29.90,
+    fotos: 5,
+    destaque: true,
+    novo: true,
+    desc: "Pote organizador redondo com tampa de rosca decorado com delicada estampa floral 3D em alto relevo. Possui divisórias internas para acomodar com segurança até 5 frascos ou ampolas (compatível com frascos padrão Mounjaro / peptídeos). Protege seus medicamentos contra quedas, atritos e luminosidade com total discrição e elegância.",
+    specs: [
+      "Acomoda com segurança até 5 frascos ou ampolas",
+      "Tampa com fechamento firme em rosca suave",
+      "Textura escultural delicada com flores em alto relevo",
+      "Disponível nas variações Preto ou Branco",
+      "Ideal para levar em viagens, necessaires ou organizar em casa"
+    ]
+  },
+  {
+    slug: "porta-frascos-monjaro-estojo",
+    nome: "Porta Frascos Monjaro Estojo 6 Lugares com Trava e Dobradiça Organizador de Ampolas",
+    curto: "Porta Frascos Monjaro Estojo (6 Lugares)",
+    cat: "utilidades",
+    ejetor: false,
+    preco: 21.99,
+    de: 29.90,
+    fotos: 4,
+    destaque: true,
+    novo: true,
+    desc: "Estojo organizador compacto estilo maletinha com capacidade para 6 frascos ou ampolas (compatível com frascos padrão Mounjaro). Conta com fecho de trava por encaixe firme e dobradiça resistente, além de detalhe decorativo floral na base. Praticidade e proteção para seus frascos onde você for.",
+    specs: [
+      "Capacidade para até 6 frascos ou ampolas com berço individual",
+      "Fechamento seguro com trava frontal e dobradiça articulada",
+      "Design compacto e discreto para guardar na geladeira ou transportar na bolsa",
+      "Disponível nas variações Preto ou Branco",
+      "Construção sólida em impressão 3D de alta durabilidade"
+    ]
+  },
+  {
+    slug: "porta-pincel-corsair",
+    nome: "Porta Pincel de Maquiagem Espartilho Corset Gótico Organizador de Pincéis e Canetas Decoração Preto",
+    curto: "Porta Pincel Espartilho Corset",
+    cat: "utilidades",
+    ejetor: false,
+    preco: 29.99,
     de: 39.99,
     fotos: 6,
     destaque: true,
     novo: true,
-    desc: "Organizador de bancada Corsair com design exclusivo e moderno em impressão 3D. Compartimentos sob medida para organizar seus pincéis de maquiagem, canetas ou ferramentas com estilo, firmeza e elegância na sua penteadeira ou mesa.",
+    desc: "Organizador de bancada exclusivo no formato de espartilho corset gótico em impressão 3D. Compartimentos sob medida para organizar seus pincéis de maquiagem, canetas ou ferramentas com estilo marcante, elegância e firmeza na sua penteadeira ou mesa.",
     specs: [
-      "Design Corsair moderno e estilizado em alto relevo",
-      "Compartimentos espaçosos para múltiplos pincéis e cosméticos",
+      "Design exclusivo de Espartilho / Corset gótico em 3D",
+      "Compartimentos espaçosos para múltiplos pincéis, canetas e cosméticos",
       "Base sólida e estável que decora sua bancada ou mesa",
-      "10% de Desconto promocional exclusivo",
-      "🚚 Frete Grátis para todo o Brasil"
+      "Acabamento fosco texturizado de alta qualidade"
     ]
   },
   {
     slug: "kit-3-ganchos",
-    nome: "Kit com 3 Ganchos Multiuso de Parede em Impressão 3D",
-    curto: "Kit 3 Ganchos Multiuso",
+    nome: "Kit 3 Ganchos de Parede Canelado Minimalista para Toalha Bolsa Chave e Roupa Preto ou Branco",
+    curto: "Kit 3 Ganchos Canelados",
     cat: "utilidades",
     ejetor: false,
     preco: 16.99,
@@ -159,13 +256,13 @@ const PRODUTOS = [
     fotos: 5,
     destaque: true,
     novo: true,
-    desc: "Kit econômico com 3 ganchos resistentes para parede, armário ou bancada. Design moderno impresso em 3D, ideal para pendurar toalhas, chaves, bolsas, fones de ouvido e utensílios, mantendo sua casa prática e organizada.",
+    desc: "Kit com 3 ganchos de parede canelados com design minimalista contemporâneo. Ideal para pendurar toalhas, chaves, bolsas, fones de ouvido e roupas, mantendo sua casa prática, elegante e organizada.",
     specs: [
-      "Kit contém 3 ganchos resistentes em 3D",
+      "Kit contém 3 ganchos resistentes canelados em 3D",
       "Fixação prática para paredes, portas, móveis e azulejos",
-      "Ideal para chaves, toalhas, bolsas, cabos e fones",
-      "Material PLA resistente de alta sustentação",
-      "🚚 Frete Grátis para todo o Brasil"
+      "Disponível nas variações Preto ou Branco",
+      "Ideal para chaves, toalhas, bolsas, cabos e casacos",
+      "Material PLA reforçado de alta sustentação"
     ]
   },
   {
@@ -184,8 +281,7 @@ const PRODUTOS = [
       "Superfície com texturas variadas para cerdas finas e grossas",
       "Limpa profundamente sem estragar as cerdas do pincel",
       "Tamanho compacto, leve e fácil de manusear na pia",
-      "Material lavável, resistente e durável",
-      "🚚 Frete Grátis para todo o Brasil"
+      "Material lavável, resistente e durável"
     ]
   },
   {
@@ -204,8 +300,7 @@ const PRODUTOS = [
       "Design hiper-realista idêntico ao biscoito Oreo",
       "Mecanismo rotativo prático para enrolar e desenrolar cabos",
       "Compatível com cabos USB, Type-C, Lightning e fones de ouvido",
-      "Estrutura reforçada em impressão 3D de alta densidade",
-      "🚚 Frete Grátis para todo o Brasil"
+      "Estrutura reforçada em impressão 3D de alta densidade"
     ]
   },
   {
@@ -224,8 +319,7 @@ const PRODUTOS = [
       "Compatível com todos os modelos de celular e smartphones",
       "Abertura inferior estratégica para carregar o aparelho durante o uso",
       "Base sólida com excelente estabilidade e inclinação perfeita",
-      "Design minimalista e resistente impresso em 3D",
-      "🚚 Frete Grátis para todo o Brasil"
+      "Design minimalista e resistente impresso em 3D"
     ]
   },
   {
@@ -244,8 +338,7 @@ const PRODUTOS = [
       "Encaixe universal compatível com as hastes do encosto de banco",
       "Função 2 em 1: suporte para celular + gancho resistente para bolsas e sacolas",
       "Mantém o interior do veículo organizado e os passageiros entretidos",
-      "Construção 3D reforçada suporta peso sem deformar",
-      "🚚 Frete Grátis para todo o Brasil"
+      "Construção 3D reforçada suporta peso sem deformar"
     ]
   },
 
@@ -284,7 +377,7 @@ const PRODUTOS = [
       "2 peças: carimbo com relevo + cortador deslizante",
       "Docinho padrão de 3,5 cm (15 a 20g)",
       "Feito sob encomenda com a sua inicial",
-      "Material atóxico de confeitaria, lavável à mão"
+      "Material PLA; siga as instruções de uso e limpeza do anúncio"
     ]
   },
 
@@ -393,7 +486,6 @@ function priceHTML(p) {
 function cardHTML(p) {
   const off = p.de ? Math.round((1 - p.preco / p.de) * 100) : 0;
   const flags = [
-    `<span class="flag flag--free">🚚 FRETE GRÁTIS</span>`,
     p.novo ? `<span class="flag flag--new">⚡ NOVO</span>` : "",
     off ? `<span class="flag flag--off">${off}% OFF</span>` : "",
     p.cat === "isqueiros" ? `<span class="flag flag--tag">BIC MAXI</span>` : "",
@@ -424,7 +516,7 @@ $("#cats").innerHTML = Object.entries(CATS).filter(([k]) => k !== "todos").map((
   </a>`).join("");
 
 // Vitrine Destaques
-$("#destaques").innerHTML = PRODUTOS.filter(p => p.destaque).map(cardHTML).join("");
+$("#destaques").innerHTML = PRODUTOS.filter(p => p.destaque).slice(0, 10).map(cardHTML).join("");
 
 // Vitrine Capas de Isqueiro
 const elIsqueiros = $("#grid-isqueiros");
@@ -508,7 +600,7 @@ aplicarFiltro();
 // ===== Carrossel Hero =====
 const track = $("#hero-track");
 const slides = track ? track.children.length : 0;
-let atual = 0, timer;
+let atual = 0;
 if (track && slides > 0) {
   $("#hero-dots").innerHTML = Array.from({ length: slides }, (_, i) => `<button aria-label="Banner ${i + 1}"></button>`).join("");
   const dots = [...$("#hero-dots").children];
@@ -517,8 +609,6 @@ if (track && slides > 0) {
     atual = (i + slides) % slides;
     track.style.transform = `translateX(-${atual * 100}%)`;
     dots.forEach((d, k) => d.classList.toggle("is-on", k === atual));
-    clearInterval(timer);
-    timer = setInterval(() => goSlide(atual + 1), 6000);
   }
 
   dots.forEach((d, i) => d.addEventListener("click", () => goSlide(i)));
@@ -568,9 +658,10 @@ function renderCarrinho() {
       <button class="rm" data-rm="${s}">remover</button>
     </div>`;
   }).join("") : `<p class="drawer__empty">Seu carrinho está vazio ✨<br>Escolha suas criações em 3D!</p>`;
-  $("#checkout-note").textContent = LOJA.whatsapp
-    ? "Você será direcionado(a) ao WhatsApp com seu pedido pronto."
-    : "A compra é concluída com total segurança na nossa loja oficial da Shopee.";
+  $("#checkout-note").textContent = itens.length
+    ? "Copie a lista e procure os produtos pelo nome na Shopee. Se precisar, cole a lista no chat da loja."
+    : "Adicione produtos ao carrinho para montar sua lista de pedido.";
+  $("#checkout").disabled = !itens.length;
 }
 
 function adicionar(slug, q = 1) {
@@ -595,19 +686,35 @@ $("#cart-items").addEventListener("click", e => {
   salvar(); renderCarrinho();
 });
 
-$("#checkout").addEventListener("click", () => {
-  const itens = Object.entries(carrinho);
+async function copiarTexto(texto) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(texto);
+      return true;
+    }
+  } catch {}
+  const area = document.createElement("textarea");
+  area.value = texto;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.opacity = "0";
+  document.body.appendChild(area);
+  area.select();
+  const copiou = document.execCommand("copy");
+  area.remove();
+  return copiou;
+}
+
+$("#checkout").addEventListener("click", async () => {
+  const itens = Object.entries(carrinho).filter(([slug]) => bySlug(slug));
+  if (!itens.length) return;
   const total = itens.reduce((a, [s, q]) => a + bySlug(s).preco * q, 0);
   const linhas = itens.map(([s, q]) => `• ${q}x ${bySlug(s).curto} (${brl(bySlug(s).preco * q)})`).join("\n");
   const texto = `Olá! Quero fazer este pedido na Uau! Lab:\n${linhas}\nTotal: ${brl(total)}`;
-
-  if (LOJA.whatsapp) {
-    window.open(`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
-  } else {
-    navigator.clipboard?.writeText(texto).catch(() => {});
-    window.open(LOJA.shopee, "_blank", "noopener");
-    toast("Lista copiada! Abrindo nossa loja na Shopee 📋");
-  }
+  const copiou = await copiarTexto(texto);
+  toast(copiou
+    ? "Pedido copiado! Procure os nomes na Shopee ou cole a lista no chat 📋"
+    : "Não foi possível copiar. Anote os itens e fale com a loja na Shopee.");
 });
 
 renderCarrinho();
@@ -635,7 +742,7 @@ function abrirProduto(slug) {
       "Encaixe firme, não solta no bolso"
     ] : [
       "2 peças: carimbo com relevo + cortador deslizante",
-      "Padronizado em 3,5 cm (tamanho perfeito para brigadeiro)",
+      "Confira as medidas e os cuidados de uso no anúncio",
       "Serve para doces, massas, pasta americana e biscoitos"
     ]);
     specsEl.innerHTML = specsList.map(s => `<li>${s}</li>`).join("");

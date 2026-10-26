@@ -38,26 +38,19 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .container { width: min(1200px, 100% - 32px); margin-inline: auto; }
 
-/* Topbar ticker */
+/* Avisos curtos da loja */
 .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 52px);
+  padding: 8px 16px;
   background: var(--black);
   color: var(--yellow);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: .05em;
-  overflow: hidden;
-  white-space: nowrap;
+  letter-spacing: .025em;
   border-bottom: 2px solid var(--black);
-}
-.ticker {
-  display: inline-flex;
-  gap: 48px;
-  padding: 8px 0;
-  animation: ticker 32s linear infinite;
-}
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 /* Header */
@@ -1454,6 +1447,7 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 
 /* Responsive adjustments */
 @media (max-width: 960px) {
+  .topbar span:last-child { display: none; }
   .hdr-txt { display: none; }
   .perks__inner { grid-template-columns: 1fr 1fr; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
@@ -1462,7 +1456,9 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 }
 
 @media (max-width: 760px) {
-  html { scroll-padding-top: 120px; }
+  html { scroll-padding-top: 110px; }
+  .topbar { justify-content: space-around; gap: 8px; font-size: 10px; }
+  .topbar span:last-child { display: none; }
   .menu-btn { display: grid; }
   .header__row { flex-wrap: wrap; gap: 10px; padding: 10px 0; }
   .logo { margin-right: auto; }
@@ -1470,13 +1466,16 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
   .logo-text span { font-size: 20px; }
   .search { order: 3; flex-basis: 100%; max-width: none; }
   .search input { padding: 9px 16px; }
-  .header__actions { gap: 8px; }
+  .header__actions { gap: 4px; }
+  .header__actions > .hdr-link:not(#cart-btn) { display: none; }
+  .header__actions #cart-btn { padding: 2px; }
+  .header__actions .hdr-ico { width: 40px; height: 40px; }
   .menu { display: none; }
   .menu.is-open { display: block; }
   .menu__inner { flex-direction: column; padding: 6px 16px 12px; }
   .menu a { padding: 10px 12px; border-radius: 8px; }
-  .promo { font-size: 12px; }
-  .slide { min-height: 480px; align-items: flex-start; padding-top: 24px; }
+  .promo { font-size: 12px; line-height: 1.4; padding: 8px 12px; }
+  .slide { min-height: 420px; align-items: flex-start; padding-top: 24px; }
   .slide--1 .slide__content, .slide--2 .slide__content, .slide--3 .slide__content {
     margin: 0 16px;
     padding: 20px;
@@ -1505,4 +1504,19 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+
+/* Navegação e compra mais enxutas */
+.topbar span { white-space: nowrap; }
+.cart-shop-link { margin-top: 8px; text-align: center; }
+#checkout-note { line-height: 1.45; }
+@media (max-width: 430px) {
+  .topbar { font-size: 9px; }
+  .topbar span:nth-child(2) { display: none; }
+  .slide { min-height: 390px; }
+  .slide__content h2 { font-size: clamp(28px, 8vw, 36px); }
+  .slide__actions { flex-direction: column; align-items: stretch; }
+  .slide__actions .btn { text-align: center; }
+  .grid { gap: 10px; }
 }
