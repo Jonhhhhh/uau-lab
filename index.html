@@ -3,13 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <script>
+    // Aplica a preferência antes da primeira pintura, evitando um clarão no tema escuro.
+    (() => {
+      let saved;
+      try { saved = localStorage.getItem("uaulab-theme"); } catch {}
+      const theme = saved === "dark" || saved === "light"
+        ? saved : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#121212" : "#ffffff";
+    })();
+  </script>
   <title>Uau! Lab | Criações em Impressão 3D, Capas de Isqueiro & Moldes</title>
   <meta name="description" content="Uau! Lab: Peças criativas em impressão 3D! Capas de isqueiro colecionáveis, moldes e ejetores para brigadeiros e doces, modelos personalizados e sob encomenda. Deixe seu dia mais UAU!" />
   <link rel="icon" href="assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=9" />
+  <link rel="stylesheet" href="style.css?v=12" />
 </head>
 <body>
 
@@ -23,7 +35,7 @@
   <!-- CABEÇALHO -->
   <header class="header" id="topo">
     <div class="header__row container">
-      <button class="icon-btn menu-btn" id="menu-btn" aria-label="Abrir menu">
+      <button class="icon-btn menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
         <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
 
@@ -36,11 +48,15 @@
       </a>
 
       <form class="search" id="search" role="search">
-        <input type="search" id="q" placeholder="Qual criação em 3D você procura? (capas, moldes, números...)" aria-label="Buscar produtos" />
+        <input type="search" id="q" placeholder="Busque capas, moldes e mais…" aria-label="Buscar produtos" />
         <button type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
       </form>
 
       <div class="header__actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar tema escuro" aria-pressed="false" title="Ativar tema escuro" hidden>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+        </button>
         <a class="hdr-link" href="https://www.instagram.com/uaulab3d/" target="_blank" rel="noopener" title="Siga nosso Instagram @uaulab3d">
           <span class="hdr-ico"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></span>
           <span class="hdr-txt"><b>Instagram</b><small>@uaulab3d</small></span>
@@ -49,9 +65,9 @@
           <span class="hdr-ico"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12Z"/></svg></span>
           <span class="hdr-txt"><b>Atendimento</b><small>Chama no chat</small></span>
         </a>
-        <button class="hdr-link" id="cart-btn" aria-label="Ver carrinho">
+        <button class="hdr-link" id="cart-btn" aria-label="Ver minha lista">
           <span class="hdr-ico"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><i class="badge" id="cart-count">0</i></span>
-          <span class="hdr-txt"><b>Carrinho</b><small id="cart-total-top">R$ 0,00</small></span>
+          <span class="hdr-txt"><b>Minha lista</b><small id="cart-total-top">R$ 0,00</small></span>
         </button>
       </div>
     </div>
@@ -71,55 +87,33 @@
   </header>
 
   <main>
-    <!-- CARROSSEL HERO -->
-    <section class="hero" aria-roledescription="carrossel">
-      <div class="hero__track" id="hero-track">
-
-        <!-- SLIDE 1: IDENTIDADE UAU! LAB -->
-        <article class="slide slide--1">
-          <img class="slide__bg" src="assets/banner-hero-1.png" alt="Uau! Lab - Criações em impressão 3D" />
-          <div class="slide__content">
-            <span class="pill pill--yellow">✨ Criações em Impressão 3D</span>
-            <h2>Peças criativas pra deixar o seu dia <span>mais UAU!</span></h2>
-            <p>Peças autorais impressas em 3D para confeitaria, casa e coleção.</p>
-            <div class="slide__actions">
-              <a href="#produtos" data-go="isqueiros" class="btn btn--yellow">🔥 Ver Capas de Isqueiro</a>
-              <a href="#produtos" data-go="ejetores" class="btn btn--black">🍰 Ver Moldes e Ejetores</a>
-            </div>
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="container intro__inner">
+        <div class="intro__copy">
+          <span class="pill pill--yellow">Feito em 3D. Cheio de personalidade.</span>
+          <h1 id="intro-title">Pequenas peças.<br>Um toque de <span>UAU!</span></h1>
+          <p>Capas de isqueiro, utilidades e moldes para doces. Descubra sua próxima criação favorita.</p>
+          <div class="intro__actions">
+            <a href="#produtos" data-go="todos" class="btn btn--black">Explorar as criações ↓</a>
+            <a href="https://shopee.com.br/uaulab_3d" target="_blank" rel="noopener" class="intro__link">Visitar loja na Shopee ↗</a>
           </div>
-        </article>
-
-        <!-- SLIDE 2: CAPAS DE ISQUEIRO -->
-        <article class="slide slide--2">
-          <img class="slide__bg" src="assets/banner-hero-2.png" alt="Capas de isqueiro 3D, moldes e mais" />
-          <div class="slide__content">
-            <span class="pill pill--yellow">🔥 Lançamento Colecionável</span>
-            <h2>Capas de Isqueiro em 3D com <em>Texturas Únicas</em></h2>
-            <p>Modelos com texturas e relevos marcantes, compatíveis com BIC Maxi tradicional.</p>
-            <div class="slide__actions">
-              <a href="#produtos" data-go="isqueiros" class="btn btn--yellow">Explorar Coleção de Capas</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- SLIDE 3: MOLDES & CONFEITARIA -->
-        <article class="slide slide--3">
-          <div class="slide__content">
-            <span class="pill pill--yellow">🎂 Confeitaria Criativa</span>
-            <h2>Ainda temos seus <em>moldes & ejetores</em> favoritos!</h2>
-            <p>Carimbos e cortadores para brigadeiros, doces e momentos especiais.</p>
-            <div class="slide__actions">
-              <a href="#produtos" data-go="ejetores" class="btn btn--black">Ver Moldes & Ejetores</a>
-              <a href="#produtos" data-go="kits" class="btn btn--yellow">Ver Kits Promocionais</a>
-            </div>
-          </div>
-          <img class="slide__prod-preview" src="assets/produtos/kit-natal-1.jpg" alt="Kit Natal 5 Modeladores Ejetores" />
-        </article>
-
+          <p class="intro__note">Escolha aqui. Confira cores, frete e pagamento na Shopee.</p>
+        </div>
+        <div class="intro__photos" aria-label="Conheça algumas das nossas peças">
+          <a class="intro__photo intro__photo--main" href="#produtos" data-go="isqueiros">
+            <img src="assets/produtos/capa-isqueiro-panico-1.jpg" alt="Capas Pânico preta e branca encaixadas em isqueiros" width="1000" height="1000" fetchpriority="high" />
+            <span>Capas com atitude ↗</span>
+          </a>
+          <a class="intro__photo" href="#produtos" data-go="utilidades">
+            <img src="assets/produtos/suporte-papel-higienico-celular-1.jpg" alt="Suporte criativo de papel higiênico e celular" width="1000" height="1000" />
+            <span>Ideias para sua casa ↗</span>
+          </a>
+          <a class="intro__photo" href="#produtos" data-go="ejetores">
+            <img src="assets/produtos/kit-festa-1.jpg" alt="Kit de modeladores para doces com coração, estrela e coroa" width="1000" height="1000" />
+            <span>Doces com seu toque ↗</span>
+          </a>
+        </div>
       </div>
-      <button class="hero__arrow hero__arrow--prev" id="hero-prev" aria-label="Banner anterior">‹</button>
-      <button class="hero__arrow hero__arrow--next" id="hero-next" aria-label="Próximo banner">›</button>
-      <div class="hero__dots" id="hero-dots"></div>
     </section>
 
     <!-- CATEGORIAS -->
@@ -163,6 +157,18 @@
       <p class="empty" id="empty" hidden>Nenhum produto encontrado nessa categoria. Quer um modelo diferente ou personalizado? <a href="#contato">Fale com a gente no chat</a> que criamos para você!</p>
     </section>
 
+    <section class="container section shop-proof" aria-labelledby="shop-proof-title">
+      <div>
+        <span class="pill pill--yellow">Conheça a Uau! Lab</span>
+        <h2 id="shop-proof-title">Mais perto de quem cria.</h2>
+        <p>Explore nosso perfil e tire suas dúvidas com a gente. Para conhecer a experiência de outros compradores, consulte as avaliações disponíveis na Shopee.</p>
+      </div>
+      <div class="shop-proof__links">
+        <a class="btn btn--black" href="https://www.instagram.com/uaulab3d/" target="_blank" rel="noopener">Conhecer o Instagram ↗</a>
+        <a class="intro__link" href="https://shopee.com.br/uaulab_3d" target="_blank" rel="noopener">Consultar a loja na Shopee ↗</a>
+      </div>
+    </section>
+
     <!-- COMO FUNCIONA NA UAU! LAB -->
     <section class="container section" id="como-funciona">
       <h2 class="title">Como Funciona na Uau! Lab</h2>
@@ -174,13 +180,13 @@
         </div>
         <div class="step">
           <i>2</i>
-          <b>Fabricação 3D de Precisão</b>
-          <p>Produzimos cada unidade no nosso laboratório utilizando filamento PLA de alta resolução, garantindo relevos marcantes e acabamento perfeito.</p>
+          <b>Confira os detalhes</b>
+          <p>Abra os detalhes para ver fotos, materiais e compatibilidade. As peças são produzidas em PLA por impressão 3D.</p>
         </div>
         <div class="step">
           <i>3</i>
-          <b>Receba com Segurança</b>
-          <p>Seu pedido é embalado com todo cuidado e enviado com código de rastreio para qualquer lugar do Brasil pela Shopee ou correios.</p>
+          <b>Compre pela Shopee</b>
+          <p>Na loja da Shopee, confira as opções disponíveis, o valor do frete e o prazo para seu endereço antes de pagar.</p>
         </div>
       </div>
       <p class="tip">💡 <b>Dica para moldes e ejetores:</b> Polvilhe um pouco de açúcar impalpável ou amido de milho para facilitar a desmoldagem. Lave as peças sempre à mão com água morna (nunca em lava-louças).</p>
@@ -191,7 +197,7 @@
       <h2 class="title">Dúvidas Frequentes</h2>
 
       <details>
-        <summary>O que é a Uau! Lab? O nicho da loja mudou?</summary>
+        <summary>O que a Uau! Lab cria?</summary>
         <p>A Uau! Lab cria peças em impressão 3D para confeitaria, casa, coleção e projetos personalizados.</p>
       </details>
 
@@ -216,13 +222,13 @@
       </details>
 
       <details>
-        <summary>O frete é grátis mesmo? Como funciona o envio?</summary>
+        <summary>Como consultar o frete e o prazo de entrega?</summary>
         <p>O valor e as opções de envio podem variar por produto e região. Confira as condições atualizadas na página do anúncio da Shopee antes de concluir seu pedido.</p>
       </details>
 
       <details>
         <summary>Como funciona a compra, pagamento e envio?</summary>
-        <p>Monte seu pedido no carrinho do site e copie a lista. Abra nossa loja na Shopee, procure cada produto pelo nome e conclua a compra por lá. Se precisar, cole a lista no chat da loja para pedir ajuda. O pagamento e o envio são concluídos pela Shopee.</p>
+        <p>Este site é nosso catálogo. Veja as fotos e os detalhes de cada peça e acesse a loja na Shopee para comprar. A lista de favoritos ajuda a guardar suas escolhas; ela não reserva produtos nem conclui um pedido. Cores, disponibilidade, preço final, frete e pagamento devem ser conferidos na Shopee.</p>
       </details>
     </section>
   </main>
@@ -266,14 +272,14 @@
         <h4>Atendimento & Redes</h4>
         <a href="https://www.instagram.com/uaulab3d/" target="_blank" rel="noopener">📸 Instagram: @uaulab3d</a>
         <a href="https://www.facebook.com/share/1PauAL9Crs/?mibextid=wwXIfr" target="_blank" rel="noopener">👥 Facebook: Uau! Lab</a>
-        <a href="https://shopee.com.br/ga2raojrxe" target="_blank" rel="noopener">🛍️ Visitar nossa loja na Shopee</a>
+        <a href="https://shopee.com.br/uaulab_3d" target="_blank" rel="noopener">🛍️ Visitar nossa loja na Shopee</a>
         <a href="#" id="wa-footer" hidden>💬 Fale no WhatsApp</a>
         <a href="#faq">❓ Dúvidas Frequentes</a>
       </div>
 
       <div>
         <h4>Compre com Segurança</h4>
-        <p style="color: #fff; font-weight: 700; margin-top: 0;">Loja Oficial Shopee</p>
+        <p style="color: #fff; font-weight: 700; margin-top: 0;">Nossa loja na Shopee</p>
         <p>Confira no anúncio as formas de pagamento, prazos e opções de envio disponíveis para seu endereço.</p>
       </div>
     </div>
@@ -282,7 +288,7 @@
   </footer>
 
   <!-- BOTÃO FLUTUANTE DE CHAT -->
-  <a class="float-chat" id="float-chat" href="https://shopee.com.br/ga2raojrxe" target="_blank" rel="noopener" aria-label="Visite nossa loja na Shopee">
+  <a class="float-chat" id="float-chat" href="https://shopee.com.br/uaulab_3d" target="_blank" rel="noopener" aria-label="Visite nossa loja na Shopee">
     <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12Z"/></svg>
   </a>
 
@@ -313,29 +319,30 @@
             <span id="m-qty">1</span>
             <button id="m-plus" aria-label="Aumentar quantidade">+</button>
           </div>
-          <button class="btn btn--yellow btn--block" id="m-add">Adicionar ao carrinho</button>
+          <button class="btn btn--yellow btn--block" id="m-add">Salvar na minha lista</button>
         </div>
 
-        <a class="shopee-link" id="m-shopee" href="https://shopee.com.br/ga2raojrxe" target="_blank" rel="noopener">Abrir loja na Shopee ↗</a>
+        <p class="purchase-note" id="m-purchase-note">Cores, disponibilidade, preço final e frete são confirmados na Shopee.</p>
+        <a class="shopee-link" id="m-shopee" href="https://shopee.com.br/uaulab_3d" target="_blank" rel="noopener">Abrir loja na Shopee ↗</a>
       </div>
     </div>
   </div>
 
   <!-- DRAWER CARRINHO DE COMPRAS -->
   <div class="overlay overlay--side" id="cart" hidden>
-    <aside class="drawer" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+    <aside class="drawer" role="dialog" aria-modal="true" aria-label="Lista de produtos">
       <div class="drawer__head">
-        <h3>Meu Carrinho Uau! Lab</h3>
+        <h3>Minhas escolhas</h3>
         <button class="close" data-close aria-label="Fechar">×</button>
       </div>
       <div class="drawer__body" id="cart-items"></div>
       <div class="drawer__foot">
         <div class="drawer__total">
-          <span>Total:</span>
+          <span>Subtotal estimado:</span>
           <b id="cart-total">R$ 0,00</b>
         </div>
-        <button class="btn btn--yellow btn--block" id="checkout">Copiar pedido</button>
-        <a class="btn btn--black btn--block cart-shop-link" id="cart-shop-link" href="https://shopee.com.br/ga2raojrxe" target="_blank" rel="noopener">Abrir loja na Shopee ↗</a>
+        <button class="btn btn--yellow btn--block" id="checkout">Copiar minha lista</button>
+        <a class="btn btn--black btn--block cart-shop-link" id="cart-shop-link" href="https://shopee.com.br/uaulab_3d" target="_blank" rel="noopener">Abrir loja na Shopee ↗</a>
         <p class="drawer__note" id="checkout-note">Copie a lista e procure os produtos pelo nome na Shopee. Se precisar, cole a lista no chat da loja.</p>
       </div>
     </aside>
@@ -344,6 +351,6 @@
   <!-- NOTIFICAÇÃO TOAST -->
   <div class="toast" id="toast" role="status"></div>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=12"></script>
 </body>
 </html>

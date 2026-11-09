@@ -1,7 +1,38 @@
+// ===== Tema claro / escuro =====
+(() => {
+  const toggle = document.getElementById("theme-toggle");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+  let saved;
+  try { saved = localStorage.getItem("uaulab-theme"); } catch {}
+  let followsSystem = saved !== "dark" && saved !== "light";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const dark = theme === "dark";
+    const label = dark ? "Ativar tema claro" : "Ativar tema escuro";
+    toggle.setAttribute("aria-pressed", String(dark));
+    toggle.setAttribute("aria-label", label);
+    toggle.title = label;
+    document.querySelector('meta[name="theme-color"]').content = dark ? "#121212" : "#ffffff";
+  }
+
+  applyTheme(document.documentElement.dataset.theme || "light");
+  toggle.hidden = false;
+  toggle.addEventListener("click", () => {
+    const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    followsSystem = false;
+    applyTheme(theme);
+    try { localStorage.setItem("uaulab-theme", theme); } catch {}
+  });
+  systemTheme.addEventListener("change", event => {
+    if (followsSystem) applyTheme(event.matches ? "dark" : "light");
+  });
+})();
+
 // ===== Uau! Lab - Configuração da loja =====
 const LOJA = {
   nome: "Uau! Lab",
-  shopee: "https://shopee.com.br/ga2raojrxe",
+  shopee: "https://shopee.com.br/uaulab_3d",
   instagram: "https://www.instagram.com/uaulab3d/",
   facebook: "https://www.facebook.com/share/1PauAL9Crs/?mibextid=wwXIfr",
   whatsapp: "" // ex.: "5511999998888". Vazio = compra direcionada para a Shopee
@@ -12,6 +43,7 @@ const PRODUTOS = [
   // === CAPAS DE ISQUEIRO 3D ===
   {
     slug: "capa-isqueiro-panico",
+    link: "https://shopee.com.br/Capa-Case-Compat%C3%ADvel-com-Isqueiro-BIC-Grande-Panico-Preto-ou-Branco-i.841257716.58271467517",
     nome: "Capa Case Compatível com Isqueiro BIC Grande Pânico Preto ou Branco",
     curto: "Capa Isqueiro Pânico",
     cat: "isqueiros",
@@ -32,6 +64,7 @@ const PRODUTOS = [
   },
   {
     slug: "capa-isqueiro-chamas",
+    link: "https://shopee.com.br/Capa-Case-Compat%C3%ADvel-com-Isqueiro-BIC-Grande-Chamas-Preto-ou-Branco-i.841257716.58221450045",
     nome: "Capa Case Compatível com Isqueiro BIC Grande Chamas Preto ou Branco",
     curto: "Capa Isqueiro Chamas",
     cat: "isqueiros",
@@ -52,6 +85,7 @@ const PRODUTOS = [
   },
   {
     slug: "capa-isqueiro-aranha",
+    link: "https://shopee.com.br/Capa-Case-Compat%C3%ADvel-com-Isqueiro-BIC-Grande-Aranha-G%C3%B3tica-Preto-ou-Branco-i.841257716.58221105438",
     nome: "Capa de Isqueiro 3D Aranha em Alto Relevo (Compatível com BIC Maxi)",
     curto: "Capa Isqueiro Aranha",
     cat: "isqueiros",
@@ -71,6 +105,7 @@ const PRODUTOS = [
   },
   {
     slug: "capa-isqueiro-dragao",
+    link: "https://shopee.com.br/Capa-Case-Compat%C3%ADvel-com-Isqueiro-BIC-Grande-Drag%C3%A3o-Preto-ou-Branco-i.841257716.22999875556",
     nome: "Capa de Isqueiro 3D Dragão Oriental em Alto Relevo (Compatível com BIC Maxi)",
     curto: "Capa Isqueiro Dragão",
     cat: "isqueiros",
@@ -90,6 +125,7 @@ const PRODUTOS = [
   },
   {
     slug: "capa-isqueiro-caveira-rachada",
+    link: "https://shopee.com.br/Capa-Case-Compat%C3%ADvel-com-Isqueiro-BIC-Grande-Caveira-Rachada-Preto-ou-Branco-i.841257716.58221106468",
     nome: "Capa de Isqueiro 3D Caveira Rachada com Serpente (Compatível com BIC Maxi)",
     curto: "Capa Caveira & Serpente",
     cat: "isqueiros",
@@ -128,6 +164,7 @@ const PRODUTOS = [
   },
   {
     slug: "capa-isqueiro-magazine",
+    link: "https://shopee.com.br/Capa-Case-Compat%C3%ADvel-com-Isqueiro-BIC-Grande-Estilo-Magazine-PETG-Preto-ou-Branco-i.841257716.23699870641",
     nome: "Capa de Isqueiro 3D Magazine Carregador Tático (Compatível com BIC Maxi)",
     curto: "Capa Isqueiro Magazine",
     cat: "isqueiros",
@@ -147,6 +184,7 @@ const PRODUTOS = [
   },
   {
     slug: "capa-isqueiro-ceifador",
+    link: "https://shopee.com.br/Capa-Case-Compat%C3%ADvel-com-Isqueiro-BIC-Grande-Ceifador-Halloween-Preto-ou-Branco-i.841257716.23099885575",
     nome: "Capa de Isqueiro 3D Ceifador Grim Reaper (Compatível com BIC Maxi)",
     curto: "Capa Isqueiro Ceifador",
     cat: "isqueiros",
@@ -168,6 +206,7 @@ const PRODUTOS = [
   // === UTILIDADES & SUPORTES 3D ===
   {
     slug: "suporte-papel-higienico-celular",
+    link: "https://shopee.com.br/Porta-Papel-Higi%C3%AAnico-Divertido-Boneco-Segurando-Celular-Suporte-de-Rolo-Banheiro-Decora%C3%A7%C3%A3o-Criativa-3D-i.841257716.58271408355",
     nome: "Suporte de Papel Higiênico e Celular Criativo Boneco Articulado para Bancada Preto ou Branco",
     curto: "Suporte Papel Higiênico & Celular",
     cat: "utilidades",
@@ -188,6 +227,7 @@ const PRODUTOS = [
   },
   {
     slug: "porta-frascos-monjaro-flor",
+    link: "https://shopee.com.br/Porta-Frascos-Redondo-5-Lugares-Estampa-de-Flor-Pote-com-Tampa-Rosca-Organizador-Ampolas-Preto-ou-Branco-i.841257716.58271462699",
     nome: "Porta Frascos Monjaro Redondo 5 Lugares Estampa de Flor Pote com Tampa Rosca Organizador de Ampolas",
     curto: "Porta Frascos Monjaro Flor (5 Lugares)",
     cat: "utilidades",
@@ -208,6 +248,7 @@ const PRODUTOS = [
   },
   {
     slug: "porta-frascos-monjaro-estojo",
+    link: "https://shopee.com.br/Porta-Frascos-6-Lugares-Caixa-Organizadora-com-Tampa-Estojo-Ampolas-Canetas-Preto-ou-Branco-i.841257716.58221441637",
     nome: "Porta Frascos Monjaro Estojo 6 Lugares com Trava e Dobradiça Organizador de Ampolas",
     curto: "Porta Frascos Monjaro Estojo (6 Lugares)",
     cat: "utilidades",
@@ -247,6 +288,7 @@ const PRODUTOS = [
   },
   {
     slug: "kit-3-ganchos",
+    link: "https://shopee.com.br/Kit-3-Ganchos-de-Parede-Canelado-Minimalista-para-Toalha-Bolsa-Chave-e-Roupa-Preto-ou-Branco-i.841257716.58221217356",
     nome: "Kit 3 Ganchos de Parede Canelado Minimalista para Toalha Bolsa Chave e Roupa Preto ou Branco",
     curto: "Kit 3 Ganchos Canelados",
     cat: "utilidades",
@@ -267,6 +309,7 @@ const PRODUTOS = [
   },
   {
     slug: "limpador-pincel",
+    link: "https://shopee.com.br/Limpador-de-Pincel-de-Maquiagem-Cora%C3%A7%C3%A3o-Tapete-de-Limpeza-para-Pinc%C3%A9is-e-Esponjas-Preto-ou-Branco-i.841257716.58271237557",
     nome: "Limpador e Higienizador de Pincéis de Maquiagem em 3D",
     curto: "Limpador de Pincel",
     cat: "utilidades",
@@ -286,6 +329,7 @@ const PRODUTOS = [
   },
   {
     slug: "organizador-cabos-oreo",
+    link: "https://shopee.com.br/Organizador-de-Cabos-Biscoito-Recheado-Kit-4-com-Base-ou-Avulso-Enrolador-de-Fio-Carregador-USB-i.841257716.58221120366",
     nome: "Organizador e Enrolador de Cabos 3D Biscoito Oreo Retrátil",
     curto: "Organizador de Cabos Oreo",
     cat: "utilidades",
@@ -305,6 +349,7 @@ const PRODUTOS = [
   },
   {
     slug: "suporte-celular",
+    link: "https://shopee.com.br/Suporte-de-Celular-de-Mesa-Minimalista-Apoio-para-Smartphone-Preto-ou-Branco-i.841257716.58221112290",
     nome: "Suporte Ergonômico de Mesa para Celular e Smartphone em 3D",
     curto: "Suporte Celular de Mesa",
     cat: "utilidades",
@@ -324,6 +369,7 @@ const PRODUTOS = [
   },
   {
     slug: "suporte-banco-carro",
+    link: "https://shopee.com.br/Suporte-de-Celular-Banco-de-Carro-Esportivo-Mesa-Decora%C3%A7%C3%A3o-Gamer-Preto-ou-Branco-i.841257716.58271140644",
     nome: "Suporte Gancho Veicular 2 em 1 de Encosto de Banco para Celular e Bolsas em 3D",
     curto: "Suporte Banco de Carro",
     cat: "utilidades",
@@ -364,6 +410,7 @@ const PRODUTOS = [
   },
   {
     slug: "inicial-personalizada",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Personalizado-Letra-Inicial-Idade-Nome-3-5cm-Carimbo-Cortador-Doces-Festa-i.841257716.58270679945",
     nome: "Modelador Ejetor Inicial Personalizada para Brigadeiro e Doces",
     curto: "Ejetor Inicial Personalizada",
     cat: "personalizado",
@@ -384,6 +431,7 @@ const PRODUTOS = [
   // === KITS PROMOCIONAIS DE MOLDES ===
   {
     slug: "kit-natal",
+    link: "https://shopee.com.br/Kit-5-Ejetores-Molde-de-Brigadeiro-Natal-%C3%81rvore-Gorro-Sino-Floco-Boneco-de-Neve-3-5cm-Carimbo-i.841257716.58270690001",
     nome: "Kit Natal 5 Modeladores Ejetores para Brigadeiro e Doces",
     curto: "Kit Natal (5 Modeladores)",
     cat: "kits",
@@ -403,6 +451,7 @@ const PRODUTOS = [
   },
   {
     slug: "kit-festa",
+    link: "https://shopee.com.br/Kit-3-Ejetores-Molde-de-Brigadeiro-Cora%C3%A7%C3%A3o-Estrela-Coroa-3-5cm-Carimbo-Cortador-Doces-Festa-i.841257716.58270690060",
     nome: "Kit Festa 3 Modeladores Ejetores: Coração, Estrela e Coroa",
     curto: "Kit Festa (3 Modeladores)",
     cat: "kits",
@@ -423,6 +472,7 @@ const PRODUTOS = [
   // === COLEÇÃO NÚMEROS 0 A 9 ===
   {
     slug: "ejetor-numeros",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216",
     nome: "Modelador Ejetor Números 0 a 9 para Brigadeiro e Doces (Escolha o Número)",
     curto: "Ejetor Números 0 a 9",
     cat: "numeros",
@@ -439,27 +489,46 @@ const PRODUTOS = [
       "Lavável à mão com água morna"
     ]
   },
-  { slug: "ejetor-numero-1", nome: "Modelador Ejetor Número 1 para Brigadeiro e Doces", curto: "Número 1", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, destaque: false, desc: "O mais pedido para comemorar 1º aninho, mesversários e datas especiais! Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-0", nome: "Modelador Ejetor Número 0 para Brigadeiro e Doces", curto: "Número 0", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário ou idade com o número 0 em relevo nítido. Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-2", nome: "Modelador Ejetor Número 2 para Brigadeiro e Doces", curto: "Número 2", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 2 em relevo nítido. Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-3", nome: "Modelador Ejetor Número 3 para Brigadeiro e Doces", curto: "Número 3", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 3 em relevo nítido. Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-4", nome: "Modelador Ejetor Número 4 para Brigadeiro e Doces", curto: "Número 4", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 4 em relevo nítido. Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-5", nome: "Modelador Ejetor Número 5 para Brigadeiro e Doces", curto: "Número 5", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 5 em relevo nítido. Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-6", nome: "Modelador Ejetor Número 6 para Brigadeiro e Doces", curto: "Número 6", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 6 em relevo nítido. Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-7", nome: "Modelador Ejetor Número 7 para Brigadeiro e Doces", curto: "Número 7", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 7 em relevo nítido. Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-8", nome: "Modelador Ejetor Número 8 para Brigadeiro e Doces", curto: "Número 8", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 8 em relevo nítido. Carimbo + cortador em 3,5 cm." },
-  { slug: "ejetor-numero-9", nome: "Modelador Ejetor Número 9 para Brigadeiro e Doces", curto: "Número 9", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 9 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-1",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 1 para Brigadeiro e Doces", curto: "Número 1", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, destaque: false, desc: "O mais pedido para comemorar 1º aninho, mesversários e datas especiais! Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-0",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 0 para Brigadeiro e Doces", curto: "Número 0", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário ou idade com o número 0 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-2",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 2 para Brigadeiro e Doces", curto: "Número 2", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 2 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-3",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 3 para Brigadeiro e Doces", curto: "Número 3", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 3 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-4",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 4 para Brigadeiro e Doces", curto: "Número 4", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 4 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-5",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 5 para Brigadeiro e Doces", curto: "Número 5", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 5 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-6",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 6 para Brigadeiro e Doces", curto: "Número 6", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 6 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-7",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 7 para Brigadeiro e Doces", curto: "Número 7", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 7 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-8",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 8 para Brigadeiro e Doces", curto: "Número 8", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 8 em relevo nítido. Carimbo + cortador em 3,5 cm." },
+  { slug: "ejetor-numero-9",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-N%C3%BAmero-0-a-9-3-5cm-Carimbo-Cortador-Doces-Festa-Anivers%C3%A1rio-Idade-Confeitaria-i.841257716.58270976216", nome: "Modelador Ejetor Número 9 para Brigadeiro e Doces", curto: "Número 9", cat: "numeros", ejetor: true, preco: 18, de: 20, fotos: 2, desc: "Docinho de aniversário com o número 9 em relevo nítido. Carimbo + cortador em 3,5 cm." },
 
   // === MOLDES AVULSOS (TEMAS & NATAL) ===
-  { slug: "coracao", nome: "Modelador Ejetor Coração para Brigadeiro e Doces", curto: "Ejetor Coração", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, destaque: true, desc: "O clássico romântico. Perfeito para Dia dos Namorados, Dia das Mães, casamentos e chás." },
-  { slug: "flor", nome: "Modelador Ejetor Flor para Brigadeiro e Doces", curto: "Ejetor Flor", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, desc: "Pétalas em relevo para docinhos delicados em lembrancinhas e festas de primavera." },
-  { slug: "estrela", nome: "Modelador Ejetor Estrela para Brigadeiro e Doces", curto: "Ejetor Estrela", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, desc: "Estrela de cinco pontas com relevo definido, ótima para aniversários e celebrações." },
-  { slug: "coroa", nome: "Modelador Ejetor Coroa para Brigadeiro e Doces", curto: "Ejetor Coroa", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, desc: "Para festas de princesas, príncipes, reis e rainhas. Sucesso garantido em festas infantis." },
-  { slug: "bola-futebol", nome: "Modelador Ejetor Bola de Futebol para Doces", curto: "Ejetor Futebol", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, desc: "O docinho dos campeões. Ideal para aniversários com tema de futebol e dias de jogo." },
-  { slug: "arvore-natal", nome: "Modelador Ejetor Árvore de Natal para Doces", curto: "Árvore de Natal", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "Docinho natalino com árvore em relevo delicado. Ótimo para caixas de presente e ceia." },
-  { slug: "gorro-papai-noel", nome: "Modelador Ejetor Gorro do Papai Noel para Doces", curto: "Gorro Papai Noel", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "O gorro natalino em alto relevo. Fica incrível na mesa de doces de fim de ano." },
-  { slug: "sino-natal", nome: "Modelador Ejetor Sino de Natal para Doces", curto: "Sino de Natal", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "Sino com laço em relevo no doce para dar o toque tradicional das festas." },
-  { slug: "floco-de-neve", nome: "Modelador Ejetor Floco de Neve para Doces", curto: "Floco de Neve", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "Floco detalhado, elegante e geométrico. Serve para Natal e festas de inverno (Frozen)." },
+  { slug: "coracao",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Cora%C3%A7%C3%A3o-3-5cm-Carimbo-Cortador-Doces-Festa-Dia-dos-Namorados-Confeitaria-i.841257716.58270668172", nome: "Modelador Ejetor Coração para Brigadeiro e Doces", curto: "Ejetor Coração", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, destaque: true, desc: "O clássico romântico. Perfeito para Dia dos Namorados, Dia das Mães, casamentos e chás." },
+  { slug: "flor",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Flor-3-5cm-Carimbo-Cortador-Doces-Festa-Dia-das-M%C3%A3es-Confeitaria-i.841257716.58270668475", nome: "Modelador Ejetor Flor para Brigadeiro e Doces", curto: "Ejetor Flor", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, desc: "Pétalas em relevo para docinhos delicados em lembrancinhas e festas de primavera." },
+  { slug: "estrela",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Estrela-3-5cm-Carimbo-Cortador-Doces-Festa-Natal-Confeitaria-i.841257716.58220656763", nome: "Modelador Ejetor Estrela para Brigadeiro e Doces", curto: "Ejetor Estrela", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, desc: "Estrela de cinco pontas com relevo definido, ótima para aniversários e celebrações." },
+  { slug: "coroa",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Coroa-3-5cm-Carimbo-Cortador-Doces-Festa-Princesa-Rei-Confeitaria-i.841257716.58270675332", nome: "Modelador Ejetor Coroa para Brigadeiro e Doces", curto: "Ejetor Coroa", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, desc: "Para festas de princesas, príncipes, reis e rainhas. Sucesso garantido em festas infantis." },
+  { slug: "bola-futebol",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Bola-de-Futebol-3-5cm-Carimbo-Cortador-Doces-Festa-Copa-Confeitaria-i.841257716.58270668661", nome: "Modelador Ejetor Bola de Futebol para Doces", curto: "Ejetor Futebol", cat: "ejetores", ejetor: true, preco: 18, de: 20, fotos: 1, desc: "O docinho dos campeões. Ideal para aniversários com tema de futebol e dias de jogo." },
+  { slug: "arvore-natal",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-%C3%81rvore-de-Natal-3-5cm-Carimbo-Cortador-Doces-Natalinos-Confeitaria-i.841257716.58270679569", nome: "Modelador Ejetor Árvore de Natal para Doces", curto: "Árvore de Natal", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "Docinho natalino com árvore em relevo delicado. Ótimo para caixas de presente e ceia." },
+  { slug: "gorro-papai-noel",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Gorro-de-Papai-Noel-3-5cm-Carimbo-Cortador-Doces-Natal-Confeitaria-i.841257716.58270679654", nome: "Modelador Ejetor Gorro do Papai Noel para Doces", curto: "Gorro Papai Noel", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "O gorro natalino em alto relevo. Fica incrível na mesa de doces de fim de ano." },
+  { slug: "sino-natal",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Sino-de-Natal-3-5cm-Carimbo-Cortador-Doces-Natalinos-Confeitaria-i.841257716.58220663435", nome: "Modelador Ejetor Sino de Natal para Doces", curto: "Sino de Natal", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "Sino com laço em relevo no doce para dar o toque tradicional das festas." },
+  { slug: "floco-de-neve",
+    link: "https://shopee.com.br/Ejetor-Molde-de-Brigadeiro-Floco-de-Neve-3-5cm-Carimbo-Cortador-Doces-Natal-Frozen-Confeitaria-i.841257716.58220667012", nome: "Modelador Ejetor Floco de Neve para Doces", curto: "Floco de Neve", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "Floco detalhado, elegante e geométrico. Serve para Natal e festas de inverno (Frozen)." },
   { slug: "boneco-de-neve", nome: "Modelador Ejetor Boneco de Neve para Doces", curto: "Boneco de Neve", cat: "natal", ejetor: true, preco: 18, de: 20, fotos: 1, natal: true, desc: "Simpático e divertido. Combina muito com beijinho e brigadeiro branco." }
 ];
 
@@ -486,24 +555,25 @@ function priceHTML(p) {
 function cardHTML(p) {
   const off = p.de ? Math.round((1 - p.preco / p.de) * 100) : 0;
   const flags = [
-    p.novo ? `<span class="flag flag--new">⚡ NOVO</span>` : "",
+
     off ? `<span class="flag flag--off">${off}% OFF</span>` : "",
-    p.cat === "isqueiros" ? `<span class="flag flag--tag">BIC MAXI</span>` : "",
-    p.cat === "utilidades" ? `<span class="flag flag--tag">SETUP 3D</span>` : "",
+
+
     p.natal && p.cat !== "kits" ? `<span class="flag flag--natal">NATAL</span>` : ""
   ].filter(Boolean).join("");
 
   return `
     <article class="card" data-slug="${p.slug}" data-cat="${p.cat}">
-      <div class="card__img" data-open="${p.slug}">
+      <button type="button" class="card__img" data-open="${p.slug}" aria-label="Ver detalhes: ${p.curto}">
         <img src="${foto(p.slug, 1)}" alt="${p.curto}" loading="lazy" />
         ${p.fotos > 1 ? `<img src="${foto(p.slug, 2)}" alt="${p.curto}" loading="lazy" />` : ""}
-      </div>
+      </button>
       <div class="card__body">
         ${flags ? `<div class="card__flags">${flags}</div>` : ""}
-        <h3 class="card__name" data-open="${p.slug}">${p.nome}</h3>
+        <h3 class="card__name"><button type="button" data-open="${p.slug}">${p.curto}</button></h3>
+        <p class="card__meta">${p.cat === "isqueiros" ? "Para BIC Maxi · peça em PLA" : CATS[p.cat].nome}</p>
         <div class="price">${priceHTML(p)}</div>
-        <button class="card__buy" data-add="${p.slug}">Comprar</button>
+        ${p.link ? `<a class="card__buy" href="${p.link}" target="_blank" rel="noopener" aria-label="Comprar ${p.curto} na Shopee">Comprar na Shopee ↗</a>` : `<button class="card__buy" data-open="${p.slug}" aria-label="Ver detalhes: ${p.curto}">Ver detalhes</button>`}
       </div>
     </article>`;
 }
@@ -585,6 +655,7 @@ function aplicarFiltro() {
 
 function irPara(cat) {
   filtro = cat;
+  $("#q").value = "";
   aplicarFiltro();
   $("#produtos").scrollIntoView({ behavior: "smooth" });
 }
@@ -596,35 +667,6 @@ $("#chips").addEventListener("click", e => {
 $("#search").addEventListener("submit", e => { e.preventDefault(); filtro = "todos"; irPara("todos"); });
 $("#q").addEventListener("input", () => { filtro = "todos"; aplicarFiltro(); });
 aplicarFiltro();
-
-// ===== Carrossel Hero =====
-const track = $("#hero-track");
-const slides = track ? track.children.length : 0;
-let atual = 0;
-if (track && slides > 0) {
-  $("#hero-dots").innerHTML = Array.from({ length: slides }, (_, i) => `<button aria-label="Banner ${i + 1}"></button>`).join("");
-  const dots = [...$("#hero-dots").children];
-
-  function goSlide(i) {
-    atual = (i + slides) % slides;
-    track.style.transform = `translateX(-${atual * 100}%)`;
-    dots.forEach((d, k) => d.classList.toggle("is-on", k === atual));
-  }
-
-  dots.forEach((d, i) => d.addEventListener("click", () => goSlide(i)));
-  $("#hero-prev")?.addEventListener("click", () => goSlide(atual - 1));
-  $("#hero-next")?.addEventListener("click", () => goSlide(atual + 1));
-
-  let toqueX = null;
-  track.addEventListener("touchstart", e => { toqueX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener("touchend", e => {
-    if (toqueX === null) return;
-    const dx = e.changedTouches[0].clientX - toqueX;
-    if (Math.abs(dx) > 40) goSlide(atual + (dx < 0 ? 1 : -1));
-    toqueX = null;
-  });
-  goSlide(0);
-}
 
 // ===== Carrinho =====
 let carrinho = {};
@@ -655,12 +697,16 @@ function renderCarrinho() {
         <small>${brl(p.preco)}</small><br>
         <div class="qty"><button data-dec="${s}" aria-label="Menos">−</button><span>${q}</span><button data-inc="${s}" aria-label="Mais">+</button></div>
       </div>
-      <button class="rm" data-rm="${s}">remover</button>
+      <button class="rm" data-rm="${s}" aria-label="Remover ${p.curto} da lista">remover</button>
+      ${p.link
+        ? `<a class="line__shop" href="${p.link}" target="_blank" rel="noopener" aria-label="Comprar ${p.curto} na Shopee">Comprar na Shopee ↗</a>${p.cat === "numeros" ? '<small class="line__hint">Escolha o número no anúncio da Shopee.</small>' : ''}`
+        : `<a class="line__shop line__shop--store" href="${LOJA.shopee}" target="_blank" rel="noopener">Consultar na loja ↗</a><small class="line__hint">Anúncio individual ainda não vinculado.</small>`}
+
     </div>`;
-  }).join("") : `<p class="drawer__empty">Seu carrinho está vazio ✨<br>Escolha suas criações em 3D!</p>`;
+  }).join("") : `<p class="drawer__empty">Sua lista está vazia ✨<br>Escolha suas criações em 3D!</p>`;
   $("#checkout-note").textContent = itens.length
-    ? "Copie a lista e procure os produtos pelo nome na Shopee. Se precisar, cole a lista no chat da loja."
-    : "Adicione produtos ao carrinho para montar sua lista de pedido.";
+    ? "Use o botão de cada peça para abrir o anúncio. Escolha as variações e quantidades na Shopee; a lista não é transferida automaticamente."
+    : "Salve os produtos que gostar para consultar depois.";
   $("#checkout").disabled = !itens.length;
 }
 
@@ -673,7 +719,7 @@ function adicionar(slug, q = 1) {
     void b.offsetWidth;
     b.classList.add("bump");
   }
-  toast(`${bySlug(slug).curto} adicionado ao carrinho! 🛒`);
+  toast(`${bySlug(slug).curto} salvo na sua lista! ✨`);
 }
 
 $("#cart-items").addEventListener("click", e => {
@@ -709,11 +755,11 @@ $("#checkout").addEventListener("click", async () => {
   const itens = Object.entries(carrinho).filter(([slug]) => bySlug(slug));
   if (!itens.length) return;
   const total = itens.reduce((a, [s, q]) => a + bySlug(s).preco * q, 0);
-  const linhas = itens.map(([s, q]) => `• ${q}x ${bySlug(s).curto} (${brl(bySlug(s).preco * q)})`).join("\n");
-  const texto = `Olá! Quero fazer este pedido na Uau! Lab:\n${linhas}\nTotal: ${brl(total)}`;
+  const linhas = itens.map(([s, q]) => `• ${q}x ${bySlug(s).curto} (${brl(bySlug(s).preco * q)})${bySlug(s).link ? "\n" + bySlug(s).link : ""}`).join("\n");
+  const texto = `Olá! Tenho interesse nestas peças da Uau! Lab:\n${linhas}\nSubtotal estimado: ${brl(total)}\nGostaria de confirmar as opções e os valores na Shopee.`;
   const copiou = await copiarTexto(texto);
   toast(copiou
-    ? "Pedido copiado! Procure os nomes na Shopee ou cole a lista no chat 📋"
+    ? "Lista copiada! Você pode colar no chat da loja na Shopee 📋"
     : "Não foi possível copiar. Anote os itens e fale com a loja na Shopee.");
 });
 
@@ -731,6 +777,10 @@ function abrirProduto(slug) {
   $("#m-desc").textContent = p.desc;
   $("#m-qty").textContent = 1;
   $("#m-shopee").href = p.link || LOJA.shopee;
+  $("#m-shopee").textContent = p.link ? "Comprar este produto na Shopee ↗" : "Abrir nossa loja na Shopee ↗";
+  $("#m-purchase-note").textContent = p.link
+    ? (p.cat === "numeros" ? "Escolha o número no anúncio da Shopee. Confira preço final, quantidade e frete por lá." : "Confira cores, disponibilidade, preço final e frete no anúncio da Shopee.")
+    : "Na Shopee, procure por: " + p.nome + ". Confira cores, preço final e frete por lá.";
 
   // Renderizar especificações dinâmicas
   const specsEl = $("#m-specs");
@@ -806,6 +856,15 @@ document.querySelectorAll(".overlay").forEach(o => o.addEventListener("click", e
   if (e.target === o || e.target.closest("[data-close]")) fechar("#" + o.id);
 }));
 document.addEventListener("keydown", e => {
+  if (e.key === "Tab") {
+    const overlay = document.querySelector(".overlay:not([hidden])");
+    if (overlay) {
+      const controls = [...overlay.querySelectorAll('button:not([disabled]), a[href], input:not([disabled])')].filter(el => el.getClientRects().length);
+      const first = controls[0], last = controls[controls.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+    }
+  }
   if (e.key === "Escape") document.querySelectorAll(".overlay:not([hidden])").forEach(o => fechar("#" + o.id));
 });
 $("#cart-btn").addEventListener("click", () => { ultimoFoco = $("#cart-btn"); abrir("#cart"); });
@@ -818,15 +877,22 @@ document.addEventListener("click", e => {
   const sc = e.target.closest("[data-scroll]");
   if (add) return adicionar(add.dataset.add);
   if (open) return abrirProduto(open.dataset.open);
-  if (go) { e.preventDefault(); $("#menu")?.classList.remove("is-open"); return irPara(go.dataset.go); }
+  if (go) { e.preventDefault(); fecharMenu(); return irPara(go.dataset.go); }
   if (sc) {
     const el = document.getElementById(sc.dataset.scroll);
     if (el) el.scrollBy({ left: el.clientWidth * 0.8 * sc.dataset.dir, behavior: "smooth" });
   }
-  if (e.target.closest(".menu a")) $("#menu")?.classList.remove("is-open");
+  if (e.target.closest(".menu a")) fecharMenu();
 });
 
-$("#menu-btn")?.addEventListener("click", () => $("#menu")?.classList.toggle("is-open"));
+function fecharMenu() {
+  $("#menu").classList.remove("is-open");
+  $("#menu-btn").setAttribute("aria-expanded", "false");
+}
+$("#menu-btn")?.addEventListener("click", () => {
+  const aberto = $("#menu").classList.toggle("is-open");
+  $("#menu-btn").setAttribute("aria-expanded", String(aberto));
+});
 
 // WhatsApp configurado
 if (LOJA.whatsapp) {
