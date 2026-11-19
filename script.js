@@ -203,6 +203,144 @@ const PRODUTOS = [
     ]
   },
 
+  // === ARTIGOS RELIGIOSOS (PORTA TERÇO) ===
+  {
+    slug: "porta-terco-nossa-senhora-coroa",
+    link: "https://shopee.com.br/product/841257716/58273237971",
+    nome: "Porta Terço Nossa Senhora com Coroa e Base com Pés Decoração Religiosa Católica",
+    curto: "Porta Terço Nossa Senhora com Coroa",
+    cat: "religiosos",
+    ejetor: false,
+    preco: 47.69,
+    de: 52.99,
+    fotos: 3,
+    destaque: true,
+    novo: true,
+    desc: "Imagem de Nossa Senhora com coroa sobre uma bandeja oval com pezinhos, feita para guardar o terço com carinho e deixar o oratório ou a cabeceira ainda mais bonitos. Terço e vela das fotos são ilustrativos e não acompanham o produto.",
+    specs: [
+      "Bandeja oval com pés para acomodar o terço",
+      "Imagem de Nossa Senhora com coroa em relevo detalhado",
+      "Ideal para oratório, cabeceira ou presente",
+      "Peça em impressão 3D (PLA)"
+    ]
+  },
+  {
+    slug: "porta-terco-aparecida",
+    link: "https://shopee.com.br/product/841257716/58221764734",
+    nome: "Porta Terço Nossa Senhora Aparecida com Bandeja Decoração Religiosa Católica",
+    curto: "Porta Terço Nossa Senhora Aparecida",
+    cat: "religiosos",
+    ejetor: false,
+    preco: 18.69,
+    de: 21.99,
+    fotos: 6,
+    destaque: true,
+    novo: true,
+    desc: "Nossa Senhora Aparecida com manto rendado em relevo sobre bandeja redonda para guardar o terço. Um presente cheio de fé para quem é devoto da Padroeira do Brasil. Terço e vela das fotos são ilustrativos e não acompanham o produto.",
+    specs: [
+      "Bandeja redonda para acomodar o terço",
+      "Manto com detalhes florais em relevo",
+      "Ótima lembrança de batizado, crisma e Dia de Nossa Senhora",
+      "Peça em impressão 3D (PLA)"
+    ]
+  },
+  {
+    slug: "porta-terco-lourdes-gruta",
+    link: "https://shopee.com.br/product/841257716/58273235161",
+    nome: "Porta Terço Nossa Senhora de Lourdes com Gruta Decoração Religiosa Católica",
+    curto: "Porta Terço N. Sra. de Lourdes (Gruta)",
+    cat: "religiosos",
+    ejetor: false,
+    preco: 26.39,
+    de: 32.99,
+    fotos: 4,
+    destaque: true,
+    novo: true,
+    desc: "Nossa Senhora de Lourdes dentro da gruta, com bandeja para descansar o terço. Uma peça delicada para o cantinho de oração. Terço e vela das fotos são ilustrativos e não acompanham o produto.",
+    specs: [
+      "Gruta com imagem de Nossa Senhora de Lourdes",
+      "Bandeja integrada para o terço",
+      "Ideal para oratório e presente religioso",
+      "Peça em impressão 3D (PLA)"
+    ]
+  },
+  {
+    slug: "porta-terco-lourdes-base-redonda",
+    link: "https://shopee.com.br/product/841257716/58273240922",
+    nome: "Porta Terço Nossa Senhora de Lourdes Gruta com Base Redonda Decoração Religiosa",
+    curto: "Porta Terço N. Sra. de Lourdes (Base Redonda)",
+    cat: "religiosos",
+    ejetor: false,
+    preco: 26.39,
+    de: 32.99,
+    fotos: 4,
+    novo: true,
+    desc: "Versão da gruta de Nossa Senhora de Lourdes com base redonda ampla, que acomoda bem o terço e fica linda em qualquer móvel. Terço e vela das fotos são ilustrativos e não acompanham o produto.",
+    specs: [
+      "Base redonda ampla para o terço",
+      "Gruta com imagem de Nossa Senhora de Lourdes",
+      "Ideal para oratório e presente religioso",
+      "Peça em impressão 3D (PLA)"
+    ]
+  },
+  {
+    slug: "porta-terco-jesus-misericordioso",
+    link: "https://shopee.com.br/product/841257716/58273231897",
+    nome: "Porta Terço Jesus Misericordioso com Bandeja Decoração Religiosa Católica",
+    curto: "Porta Terço Jesus Misericordioso",
+    cat: "religiosos",
+    ejetor: false,
+    preco: 21.59,
+    de: 26.99,
+    fotos: 5,
+    novo: true,
+    desc: "Jesus Misericordioso com bandeja para guardar o terço. \"Jesus, eu confio em vós.\" Uma peça de fé para a casa ou para presentear. Terço e vela das fotos são ilustrativos e não acompanham o produto.",
+    specs: [
+      "Bandeja integrada para o terço",
+      "Imagem de Jesus Misericordioso em relevo",
+      "Ideal para oratório, cabeceira ou presente",
+      "Peça em impressão 3D (PLA)"
+    ]
+  },
+  {
+    slug: "porta-terco-sagrado-coracao",
+    link: "https://shopee.com.br/product/841257716/58273237798",
+    nome: "Porta Terço Sagrado Coração de Jesus com Bandeja Decoração Religiosa Católica",
+    curto: "Porta Terço Sagrado Coração de Jesus",
+    cat: "religiosos",
+    ejetor: false,
+    preco: 25.19,
+    de: 27.99,
+    fotos: 4,
+    novo: true,
+    desc: "Sagrado Coração de Jesus com bandeja para descansar o terço. Uma lembrança de fé para o lar e um presente especial. Terço e vela das fotos são ilustrativos e não acompanham o produto.",
+    specs: [
+      "Bandeja integrada para o terço",
+      "Imagem do Sagrado Coração de Jesus",
+      "Ideal para oratório, cabeceira ou presente",
+      "Peça em impressão 3D (PLA)"
+    ]
+  },
+  {
+    slug: "porta-terco-sao-judas",
+    link: "https://shopee.com.br/product/841257716/58273237653",
+    nome: "Porta Terço São Judas Tadeu com Bandeja Decoração Religiosa Católica",
+    curto: "Porta Terço São Judas Tadeu",
+    cat: "religiosos",
+    ejetor: false,
+    preco: 22.49,
+    de: 24.99,
+    fotos: 7,
+    novo: true,
+    desc: "São Judas Tadeu, o santo das causas impossíveis, com bandeja redonda para guardar o terço. Peça detalhada para o oratório ou para presentear. Terço e vela das fotos são ilustrativos e não acompanham o produto.",
+    specs: [
+      "Bandeja redonda para o terço",
+      "Imagem de São Judas Tadeu com detalhes em relevo",
+      "Ideal para oratório, cabeceira ou presente",
+      "Peça em impressão 3D (PLA)"
+    ]
+  },
+
   // === UTILIDADES & SUPORTES 3D ===
   {
     slug: "suporte-papel-higienico-celular",
@@ -223,6 +361,44 @@ const PRODUTOS = [
       "Design exclusivo de personagem segurando rolo com traseira de smartphone",
       "Disponível nas cores Branco ou Preto",
       "Peça decorativa divertida e resistente em impressão 3D"
+    ]
+  },
+  {
+    slug: "porta-papel-gato",
+    link: "https://shopee.com.br/product/841257716/58272760382",
+    nome: "Porta Papel Higiênico Gato Divertido Suporte de Rolo para Banheiro Preto ou Branco",
+    curto: "Porta Papel Higiênico Gato",
+    cat: "utilidades",
+    ejetor: false,
+    preco: 24.65,
+    de: 29.0,
+    fotos: 8,
+    destaque: true,
+    novo: true,
+    desc: "Um gatinho fofo segurando o rolo de papel higiênico! Suporte de bancada que deixa o banheiro ou lavabo muito mais divertido.",
+    specs: [
+      "Compatível com rolo padrão de papel higiênico",
+      "Base firme para bancada ou prateleira",
+      "Disponível nas cores Branco ou Preto",
+      "Peça decorativa em impressão 3D (PLA)"
+    ]
+  },
+  {
+    slug: "porta-papel-boneco-livro",
+    link: "https://shopee.com.br/product/841257716/58272752441",
+    nome: "Porta Papel Higiênico Boneco Lendo Livro com Pernas Articuladas Preto ou Branco",
+    curto: "Porta Papel Boneco Lendo Livro",
+    cat: "utilidades",
+    ejetor: false,
+    preco: 19.99,
+    fotos: 7,
+    novo: true,
+    desc: "O leitor mais tranquilo do banheiro: boneco que abraça o rolo de papel higiênico segurando um livro aberto, com perninhas articuladas que balançam na borda da bancada.",
+    specs: [
+      "Compatível com rolo padrão de papel higiênico",
+      "Pernas articuladas que penduram na borda da bancada",
+      "Disponível nas cores Branco ou Preto",
+      "Peça decorativa em impressão 3D (PLA)"
     ]
   },
   {
@@ -536,6 +712,7 @@ const CATS = {
   todos:         { nome: "Todos",               img: "assets/categorias/cat-isqueiros.jpg" },
   isqueiros:     { nome: "Capas de Isqueiro",   img: "assets/categorias/cat-isqueiros.jpg" },
   utilidades:    { nome: "Utilidades & Setup",  img: "assets/categorias/cat-utilidades.jpg" },
+  religiosos:    { nome: "Artigos Religiosos",  img: "assets/categorias/cat-religiosos.jpg" },
   ejetores:      { nome: "Moldes & Ejetores",   img: "assets/categorias/cat-moldes.jpg" },
   numeros:       { nome: "Números 0 a 9",       img: "assets/categorias/cat-numeros.jpg" },
   kits:          { nome: "Kits Promocionais",   img: "assets/categorias/cat-kits.jpg" },
@@ -629,6 +806,7 @@ function produtoCorrespondeFiltro(p, f) {
   if (f === "todos") return true;
   if (f === "isqueiros") return p.cat === "isqueiros";
   if (f === "utilidades") return p.cat === "utilidades";
+  if (f === "religiosos") return p.cat === "religiosos";
   if (f === "ejetores") return p.ejetor === true;
   if (f === "numeros") return p.cat === "numeros";
   if (f === "kits") return p.cat === "kits";
